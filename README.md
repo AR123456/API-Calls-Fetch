@@ -1,1 +1,1 @@
-# pure javascript implementaion of reusable code for searching an API and rendering response
+# Pure Javascript implementaion of reusable code for searching an API and rendering response
