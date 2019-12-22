@@ -10,10 +10,13 @@
 // make network request using axios
 // helper function
 const fetchData = async () => {
+  // the index get request
   const response = await axios.get("http://www.omdbapi.com/", {
     params: {
       apikey: "trilogy",
-      s: "avengers"
+      // s: "avengers"
+      // changing to I and hard coding a move to make the data request about a specific movie
+      i: "tt0848228"
     }
   });
   console.log(response.data);
