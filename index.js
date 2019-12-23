@@ -4,9 +4,6 @@
 // Send all data requests to:
 // http://www.omdbapi.com/?apikey=[yourkey]&
 
-// autocomplete functionality - need rules for how it will work
-// style the app
-
 // make network request using axios
 // helper function
 const fetchData = async () => {
@@ -22,3 +19,13 @@ const fetchData = async () => {
   console.log(response.data);
 };
 fetchData();
+
+// autocomplete functionality - need rules for how it will work
+// input box where user types in search term
+// search with each letter entered
+// when finished typeing show results
+// if no movie found do somenthing to indicate that
+// ignore the enter key
+// click on the movie display picks it
+
+// style the app
