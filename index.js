@@ -10,16 +10,21 @@ const fetchData = async searchTerm => {
 };
 
 const input = document.querySelector("input");
-
-let timeoutId;
-const onInput = event => {
-  if (timeoutId) {
-    clearTimeout(timeoutId);
-  }
-
-  timeoutId = setTimeout(() => {
-    fetchData(event.target.value);
-  }, 500);
+// this delay is the default , it is being over ridden when 500 is passed into the eventListener below
+const debounce = (func, delay = 1000) => {
+  let timeoutId;
+  return (...args) => {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    timeoutId = setTimeout(() => {
+      func.apply(null, args);
+    }, delay);
+  };
 };
 
-input.addEventListener("input", onInput);
+const onInput = event => {
+  fetchData(event.target.value);
+};
+
+input.addEventListener("input", debounce(onInput, 500));
