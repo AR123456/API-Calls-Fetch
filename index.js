@@ -6,17 +6,20 @@ const fetchData = async searchTerm => {
       s: searchTerm
     }
   });
+  if (response.data.Error) {
+    return [];
+  }
   return response.data.Search;
 };
 
 const input = document.querySelector("input");
 
 const onInput = async event => {
-  const movie = await fetchData(event.target.value);
+  const movies = await fetchData(event.target.value);
   // using for of here to loop , this is not supported by IE at this time so beware
   // could you another loop methond here
 
-  for (let movies of movies) {
+  for (let movie of movies) {
     const div = document.createElement("div");
     div.innerHTML = `
   <img src="${movie.Poster}"/>
