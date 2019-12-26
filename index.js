@@ -11,13 +11,26 @@ const fetchData = async searchTerm => {
   }
   return response.data.Search;
 };
+// set up for the auto complet widget
+const root = document.querySelector(".autocomplete");
+root.innerHTML = `
+<lable><b>Search For a Movie</b></label>
+<input class="input" >
+<div class="dropdown"> 
+  <div class="dropdown-menu">
+    <div class="dropdown-content results"></div>
+  </div>
+</div>
 
+`;
 const input = document.querySelector("input");
+const dropdown = document.querySelector(".dropdown");
+const resultsWrapper = document.querySelector(".results");
 
 const onInput = async event => {
   const movies = await fetchData(event.target.value);
   // using for of here to loop , this is not supported by IE at this time so beware
-  // could you another loop methond here
+  // could you another loop methon here
 
   for (let movie of movies) {
     const div = document.createElement("div");
