@@ -29,7 +29,6 @@ const resultsWrapper = document.querySelector(".results");
 
 const onInput = async event => {
   const movies = await fetchData(event.target.value);
-  // if no results come back from search, close the dropdown
   if (!movies.length) {
     dropdown.classList.remove("is-active");
     return;
@@ -51,6 +50,12 @@ const onInput = async event => {
   <img src="${imgSrc}"/>
   ${movie.Title} 
   `;
+    option.addEventListener("click", () => {
+      // close dropdown
+      dropdown.classList.remove("is-active");
+      // update val of input
+      input.value = movie.Title;
+    });
     resultsWrapper.appendChild(option);
   }
 };
