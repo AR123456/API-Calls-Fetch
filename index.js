@@ -29,15 +29,19 @@ const resultsWrapper = document.querySelector(".results");
 
 const onInput = async event => {
   const movies = await fetchData(event.target.value);
+  // if no results come back from search, close the dropdown
+  if (!movies.length) {
+    dropdown.classList.remove("is-active");
+    return;
+  }
+
   // using for of here to loop , this is not supported by IE at this time so beware
-  // could you another loop methon here
+  // could you another loop method here
   dropdown.classList.add("is-active");
-  // fixing issue with new search of video appends to end of list vs clearing and making new list
   resultsWrapper.innerHTML = "";
 
   for (let movie of movies) {
     const option = document.createElement("a");
-    // creating a const for the image source and using tunary operator to compare for NA and have empty if its that.dropdown-item
 
     const imgSrc = movie.Poster === "N/A" ? "" : movie.Poster;
 
@@ -52,15 +56,9 @@ const onInput = async event => {
 };
 
 input.addEventListener("input", debounce(onInput, 500));
-//adding this event listener for anytime someone clicks on the "document"
+
 document.addEventListener("click", event => {
-  //events bubble event.target is what gets clicked
-  console.log(event.target);
-  // can look at what we have defined abouve as root which is the div with the class of auto complete
-  // this is the auto complet widget
-  //if the root element doesnt contain the element that was clicked on close the dropdown
   if (!root.contains(event.target)) {
-    //remove the is active class which is what is making it show up
     dropdown.classList.remove("is-active");
   }
 });
