@@ -32,13 +32,19 @@ const onInput = async event => {
   // using for of here to loop , this is not supported by IE at this time so beware
   // could you another loop methon here
   dropdown.classList.add("is-active");
+  // fixing issue with new search of video appends to end of list vs clearing and making new list
+  resultsWrapper.innerHTML = "";
+
   for (let movie of movies) {
     const option = document.createElement("a");
+    // creating a const for the image source and using tunary operator to compare for NA and have empty if its that.dropdown-item
+
+    const imgSrc = movie.Poster === "N/A" ? "" : movie.Poster;
 
     option.classList.add("dropdown-item");
 
     option.innerHTML = `
-  <img src="${movie.Poster}"/>
+  <img src="${imgSrc}"/>
   ${movie.Title} 
   `;
     resultsWrapper.appendChild(option);
