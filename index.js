@@ -52,3 +52,15 @@ const onInput = async event => {
 };
 
 input.addEventListener("input", debounce(onInput, 500));
+//adding this event listener for anytime someone clicks on the "document"
+document.addEventListener("click", event => {
+  //events bubble event.target is what gets clicked
+  console.log(event.target);
+  // can look at what we have defined abouve as root which is the div with the class of auto complete
+  // this is the auto complet widget
+  //if the root element doesnt contain the element that was clicked on close the dropdown
+  if (!root.contains(event.target)) {
+    //remove the is active class which is what is making it show up
+    dropdown.classList.remove("is-active");
+  }
+});
