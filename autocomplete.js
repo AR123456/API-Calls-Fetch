@@ -1,10 +1,9 @@
-// function that will take the autocomplete configuraion and render the auto complete on the screen
-// fetchData() - finds stuff
-//renderOption()- function that knows how to render sufff
-// onOptionSelected() function that gets invoked when a user clicks an option
-// root - element that the autocomplete configuration should be rendered into
-
-const createAutoComplete = ({ root, renderOption }) => {
+const createAutoComplete = ({
+  root,
+  renderOption,
+  onOptionSelect,
+  inputValue
+}) => {
   root.innerHTML = `
 <lable><b>Search For a Movie</b></label>
 <input class="input" >
@@ -25,8 +24,7 @@ const createAutoComplete = ({ root, renderOption }) => {
       dropdown.classList.remove("is-active");
       return;
     }
-    // using for of here to loop , this is not supported by IE at this time so beware
-    // could you another loop method here
+    // using for of here to loop , this is not supported by IE at this time so beware   could you another loop method here
     dropdown.classList.add("is-active");
     resultsWrapper.innerHTML = "";
     for (let movie of movies) {
@@ -35,8 +33,8 @@ const createAutoComplete = ({ root, renderOption }) => {
       option.innerHTML = renderOption(movie);
       option.addEventListener("click", () => {
         dropdown.classList.remove("is-active");
-        input.value = movie.Title;
-        onMovieSelect(movie);
+        input.value = inputValue(movie);
+        onOptionSelect(movie);
       });
       resultsWrapper.appendChild(option);
     }
