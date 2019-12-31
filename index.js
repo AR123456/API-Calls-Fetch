@@ -3,10 +3,13 @@
 createAutoComplete({
   root: document.querySelector(".autocomplete"),
   renderOption(movie) {
-    const imgSrc = movie.Poster === "N/A" ? "" : movie.Poster;
-    return `
-    <img src="${imgSrc}"/>
-    ${movie.Title} (${movie.Year})
+    // const imgSrc = movie.Poster === "N/A" ? "" : movie.Poster;
+    // return `
+    // <img src="${imgSrc}"/>
+    // ${movie.Title} (${movie.Year})
+    // `;
+    return `<img src="${movie.thumbnailUrl}"/>
+    ${movie.title}
     `;
   },
   onOptionSelect(movie) {
@@ -17,16 +20,19 @@ createAutoComplete({
   },
   async fetchData(searchTerm) {
     // the index get request
-    const response = await axios.get("http://www.omdbapi.com/", {
-      params: {
-        apikey: "trilogy",
-        s: searchTerm
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/photos?albumid=1",
+      {
+        // params: {
+        //   apikey: "trilogy",
+        //   s: searchTerm
+        // }
       }
-    });
+    );
     if (response.data.Error) {
       return [];
     }
-    return response.data.Search;
+    return response.data;
   }
 });
 
