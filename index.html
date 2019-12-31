@@ -17,7 +17,7 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            Compare Two Movies
+        Compare two movies
             <span class="icon">
               <i class="fas fa-film"></i>
             </span>
@@ -25,14 +25,26 @@
         </div>
       </div>
     </section>
-
     <div class="container">
-      <div class="autocomplete"></div>
+      <div class="columns">
+        <div class="column">
+          <div id="left-autocomplete"></div>
+        </div>
 
-      <div id="summary"></div>
+        <div class="column">
+          <div id="right-autocomplete"></div>
+        </div>
+      </div>
+
+      <div class="column is-half notification is-primary tutorial">
+        <h1 class="title">Search For a Movie on Both Sides</h1>
+        <p class="subtitle">We will tell you which is best!</p>
+      </div>
     </div>
     <script src="utils.js"></script>
     <script src="autocomplete.js"></script>
     <script src="index.js"></script>
   </body>
+</html>
+
 </html>
