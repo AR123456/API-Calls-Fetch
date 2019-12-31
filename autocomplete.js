@@ -2,10 +2,11 @@ const createAutoComplete = ({
   root,
   renderOption,
   onOptionSelect,
-  inputValue
+  inputValue,
+  fetchData
 }) => {
   root.innerHTML = `
-<lable><b>Search For a Movie</b></label>
+<lable><b>Search</b></label>
 <input class="input" >
 <div class="dropdown"> 
   <div class="dropdown-menu">
@@ -19,22 +20,22 @@ const createAutoComplete = ({
   const resultsWrapper = root.querySelector(".results");
 
   const onInput = async event => {
-    const movies = await fetchData(event.target.value);
-    if (!movies.length) {
+    const items = await fetchData(event.target.value);
+    if (!items.length) {
       dropdown.classList.remove("is-active");
       return;
     }
     // using for of here to loop , this is not supported by IE at this time so beware   could you another loop method here
     dropdown.classList.add("is-active");
     resultsWrapper.innerHTML = "";
-    for (let movie of movies) {
+    for (let item of items) {
       const option = document.createElement("a");
       option.classList.add("dropdown-item");
-      option.innerHTML = renderOption(movie);
+      option.innerHTML = renderOption(item);
       option.addEventListener("click", () => {
         dropdown.classList.remove("is-active");
-        input.value = inputValue(movie);
-        onOptionSelect(movie);
+        input.value = inputValue(item);
+        onOptionSelect(item);
       });
       resultsWrapper.appendChild(option);
     }

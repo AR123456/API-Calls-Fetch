@@ -1,16 +1,3 @@
-const fetchData = async searchTerm => {
-  // the index get request
-  const response = await axios.get("http://www.omdbapi.com/", {
-    params: {
-      apikey: "trilogy",
-      s: searchTerm
-    }
-  });
-  if (response.data.Error) {
-    return [];
-  }
-  return response.data.Search;
-};
 /// removed the stuff about auto complete widget
 // now use the function from autocomplet.js
 createAutoComplete({
@@ -27,6 +14,19 @@ createAutoComplete({
   },
   inputValue(movie) {
     return movie.Title;
+  },
+  async fetchData(searchTerm) {
+    // the index get request
+    const response = await axios.get("http://www.omdbapi.com/", {
+      params: {
+        apikey: "trilogy",
+        s: searchTerm
+      }
+    });
+    if (response.data.Error) {
+      return [];
+    }
+    return response.data.Search;
   }
 });
 
