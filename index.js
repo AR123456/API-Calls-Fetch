@@ -29,7 +29,8 @@ createAutoComplete({
   root: document.querySelector("#left-autocomplete"),
   onOptionSelect(movie) {
     document.querySelector(".tutorial").classList.add("is-hidden");
-    onMovieSelect(movie, document.querySelector("#left-summary"));
+    // add string param left
+    onMovieSelect(movie, document.querySelector("#left-summary"), "left");
   }
 });
 createAutoComplete({
@@ -37,11 +38,15 @@ createAutoComplete({
   root: document.querySelector("#right-autocomplete"),
   onOptionSelect(movie) {
     document.querySelector(".tutorial").classList.add("is-hidden");
-    onMovieSelect(movie, document.querySelector("#right-summary"));
+    // add string param right
+    onMovieSelect(movie, document.querySelector("#right-summary"), "right");
   }
 });
-
-const onMovieSelect = async (movie, summaryElement) => {
+// create referances to the  right and left movie
+let leftMovie;
+let rightMovie;
+// pass in side
+const onMovieSelect = async (movie, summaryElement, side) => {
   const response = await axios.get("http://www.omdbapi.com/", {
     params: {
       apikey: "trilogy",
@@ -49,8 +54,20 @@ const onMovieSelect = async (movie, summaryElement) => {
     }
   });
   summaryElement.innerHTML = movieTemplate(response.data);
+  // update rightMovie and leftMovie
+  if (side === "left") {
+    leftMovie = response.data;
+  } else {
+    rightMovie = response.data;
+  }
+  // if we have both a right and left movie run the comaprison fuction
+  if (leftMovie && rightMovie) {
+    runComparison();
+  }
 };
-
+const runComparison = () => {
+  console.log("time to run comparison ");
+};
 const movieTemplate = movieDetail => {
   return `
     <article class="media">
