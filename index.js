@@ -63,9 +63,18 @@ const onMovieSelect = async (movie, summaryElement, side) => {
   }
 };
 const runComparison = () => {
-// dont try to read from HTML , add a data property to the template generator
+  // dont try to read from HTML , add a data property to the template generator
 };
 const movieTemplate = movieDetail => {
+  // generate a numerical representation of the box office value
+  // regex to get rind of $ and colmas parseInt to make an integer
+  const dollars = parseInt(
+    movieDetail.BoxOffice.replace(/\$/g, "").replace(/,/g, "")
+  );
+  const metascore = parseInt(movieDetail.Metascore);
+  const imdbRating = parseFloat(movieDetail.imdbRating);
+  const imdbVotes = parseInt(movieDetail.imdbVotes.replace(/,/g, ""));
+  console.log(metascore, imdbRating, imdbVotes);
   return `
     <article class="media">
       <figure class="media-left">
@@ -73,13 +82,13 @@ const movieTemplate = movieDetail => {
           <img src="${movieDetail.Poster}" />
         </p>
       </figure>
-      <div class="media-content">
-        <div class="content">
+      <p class="media-content">
+        <p class="content">
           <h1>${movieDetail.Title}</h1>
           <h4>${movieDetail.Genre}</h4>
           <p>${movieDetail.Plot}</p>
-        </div>
-      </div>
+        </p>
+      </p>
     </article>
     <article class="notification is-primary">
         <p class="title">${movieDetail.Awards}</p>
