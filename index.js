@@ -62,7 +62,27 @@ const onMovieSelect = async (movie, summaryElement, side) => {
     runComparison();
   }
 };
-const runComparison = () => {};
+const runComparison = () => {
+  const leftSideStats = document.querySelectorAll(
+    "#left-summary .notification"
+  );
+  const rightSideStats = document.querySelectorAll(
+    "#right-summary .notification"
+  );
+  leftSideStats.forEach((leftStat, index) => {
+    const rightStat = rightSideStats[index];
+    const leftSideValue = leftStat.dataset.value;
+    const rightSideValue = rightStat.dataset.value;
+
+    if (rightSideValue > leftSideValue) {
+      leftStat.classList.remove("is-primary");
+      leftStat.classList.add("is-warning");
+    } else {
+      rightStat.classList.remove("is-primary");
+      rightStat.classList.add("is-warning");
+    }
+  });
+};
 const movieTemplate = movieDetail => {
   const dollars = parseInt(
     movieDetail.BoxOffice.replace(/\$/g, "").replace(/,/g, "")
@@ -70,16 +90,6 @@ const movieTemplate = movieDetail => {
   const metascore = parseInt(movieDetail.Metascore);
   const imdbRating = parseFloat(movieDetail.imdbRating);
   const imdbVotes = parseInt(movieDetail.imdbVotes.replace(/,/g, ""));
-  // for each method
-  // let count = 0;
-  // const awards = movieDetail.Awards.split(" ").forEach(word => {
-  //   const value = parseInt(word);
-  //   if (isNaN(value)) {
-  //     return;
-  //   } else {
-  //     count = count + value;
-  //   }
-  // });
   // using reduce
   const awards = movieDetail.Awards.split(" ").reduce((prev, word) => {
     const value = parseInt(word);
@@ -89,7 +99,7 @@ const movieTemplate = movieDetail => {
       return prev + value;
     }
   }, 0);
-  console.log(awards);
+  // console.log(awards);
 
   return `
     <article class="media">
