@@ -1,3 +1,3 @@
-# Pure Javascript implementaion of reusable code for searching an API and rendering response
+# Big example of JS Arrays 
 
-# see app at :https://ar123456.github.io/API-Calls-Fetch/
+
