@@ -25,7 +25,6 @@
     sortingWell.addEventListener("drop", drop);
     sortingWell.addEventListener("dragover", allowDrop);
     bodyEle.appendChild(sortingWell);
-    // loading the data
     const url = "./factbook.json";
     fetch(url)
       .then(response => {
@@ -117,7 +116,6 @@
     clonedBtn.style.display = "none";
     ev.currentTarget.parentNode.appendChild(clonedBtn);
   }
-  // This is where the action happens
   function drop(ev) {
     var transferData = ev.dataTransfer.getData("text");
     const dragBtn = document.getElementById(transferData);
@@ -165,6 +163,9 @@
     }
   }
   function regularSort(arr, index) {
+    // const items = tableEle.childNodes; turn this node list into an array
+    const items = Array.from(tableEle.childNodes);
+    console.log(items);
     arr.sort((a, b) => {
       const x = a["Area"] === null ? -1 : a["Area"];
       const y = b["Area"] === null ? -1 : b["Area"];
