@@ -128,6 +128,7 @@
     });
     sorters.reverse();
     const sorterIndex = headers.indexOf(sorters[0]);
+    const itemsNotNull = filterNull(sorterIndex);
     switch (getSort()) {
       case "regular":
         console.profile("regularSort");
@@ -163,9 +164,6 @@
     }
   }
   function regularSort(arr, index) {
-    // const items = tableEle.childNodes; turn this node list into an array
-    const items = Array.from(tableEle.childNodes);
-    console.log(items);
     arr.sort((a, b) => {
       const x = a["Area"] === null ? -1 : a["Area"];
       const y = b["Area"] === null ? -1 : b["Area"];
@@ -215,7 +213,14 @@
     });
     return sorter;
   }
-  function filterNull(sorterIndex) {}
+  function filterNull(sorterIndex) {
+    const items = Array.from(tableEle.childNodes);
+    return items.filter(row => {
+      //filter creates a new array out of everyting returned
+      const rowTD = Array.from(row.childNodes);
+      return rowTD[sorterIndex].textContent; // text content is standard, more efficient and doesent concern itself with renering, and will return null if value is empty so better than inner HTML or Inner text.area
+    });
+  }
   function minMaxMean(items) {
     let summary = {},
       minVal = null,
@@ -235,6 +240,7 @@
         third: thirdQuartile
       };
     });
+
     return summary;
   }
   function heatMapColor(ele, val, key) {
