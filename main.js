@@ -138,7 +138,11 @@
         break;
       case "bubble":
         console.profile("bubbleSort");
-        bubbleSort();
+        // bubbleSort();
+        // assing bubleArr to a var and pass in itemsNotNull and sorterIndex
+        const bubbleArr = bubbleSort(itemsNotNull, sorterIndex);
+        // pass this const inot the renderNodes function 
+        renderNodes(bubbleArr);
         console.profileEnd("bubbleSort");
         break;
       case "merge":
@@ -164,21 +168,45 @@
         console.profileEnd("regularSort");
     }
   }
-  //   function regularSort(arr, index) {
   function regularSort(arr, sorterIndex) {
     arr.sort((a, b) => {
       const rowA = Array.from(a.childNodes);
       const rowB = Array.from(b.childNodes);
-      //   const x = a["Area"] === null ? -1 : a["Area"];
-      const x = parseFloat(rowA[sorterIndex].textContent); // parse Float to turn texContent into number
-      //   const y = b["Area"] === null ? -1 : b["Area"];
-      const y = parseFloat(rowB[sorterIndex].textContent); // parse Float to turn texContent into number
+
+      const x = parseFloat(rowA[sorterIndex].textContent);
+      const y = parseFloat(rowB[sorterIndex].textContent);
       return x < y ? -1 : x > y ? 1 : 0;
     });
-
     return arr;
   }
-  function bubbleSort(arr, sorterIndex) {}
+  function bubbleSort(arr, sorterIndex) {
+    let swapped;
+    do {
+      swapped = false;
+      //loop through array
+      for (let i = 0; i < arr.length; i++) {
+        const j = i + 1;
+        //and check if the current row exist as well as following row
+        if (arr[i] && arr[j]) {
+          // check values like we did in reg sort
+          const rowA = Array.from(arr[i].childNodes);
+          const rowB = Array.from(arr[j].childNodes);
+
+          const x = parseFloat(rowA[sorterIndex].textContent);
+          const y = parseFloat(rowB[sorterIndex].textContent);
+          if (x > y) {
+            // if the value of x is greater than the value of y swap them
+            var temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            // this has been done so swapped is true now
+            swapped = true;
+          }
+        }
+      }
+    } while (swapped);
+    return arr;
+  }
   function mergeSort(arr) {}
 
   function merge(left, right) {}
@@ -246,6 +274,7 @@
         third: thirdQuartile
       };
     });
+
     return summary;
   }
   function heatMapColor(ele, val, key) {
