@@ -132,7 +132,8 @@
     switch (getSort()) {
       case "regular":
         console.profile("regularSort");
-        regularSort(data);
+        const regularArr = regularSort(itemsNotNull, sorterIndex);
+        renderNodes(regularArr);
         console.profileEnd("regularSort");
         break;
       case "bubble":
@@ -163,13 +164,19 @@
         console.profileEnd("regularSort");
     }
   }
-  function regularSort(arr, index) {
+  //   function regularSort(arr, index) {
+  function regularSort(arr, sorterIndex) {
     arr.sort((a, b) => {
-      const x = a["Area"] === null ? -1 : a["Area"];
-      const y = b["Area"] === null ? -1 : b["Area"];
+      const rowA = Array.from(a.childNodes);
+      const rowB = Array.from(b.childNodes);
+      //   const x = a["Area"] === null ? -1 : a["Area"];
+      const x = parseFloat(rowA[sorterIndex].textContent); // parse Float to turn texContent into number
+      //   const y = b["Area"] === null ? -1 : b["Area"];
+      const y = parseFloat(rowB[sorterIndex].textContent); // parse Float to turn texContent into number
       return x < y ? -1 : x > y ? 1 : 0;
     });
-    console.log(arr);
+
+    return arr;
   }
   function bubbleSort(arr, sorterIndex) {}
   function mergeSort(arr) {}
@@ -216,9 +223,8 @@
   function filterNull(sorterIndex) {
     const items = Array.from(tableEle.childNodes);
     return items.filter(row => {
-      //filter creates a new array out of everyting returned
       const rowTD = Array.from(row.childNodes);
-      return rowTD[sorterIndex].textContent; // text content is standard, more efficient and doesent concern itself with renering, and will return null if value is empty so better than inner HTML or Inner text.area
+      return rowTD[sorterIndex].textContent;
     });
   }
   function minMaxMean(items) {
@@ -240,7 +246,6 @@
         third: thirdQuartile
       };
     });
-
     return summary;
   }
   function heatMapColor(ele, val, key) {
