@@ -143,15 +143,15 @@
         console.profileEnd("bubbleSort");
         break;
       case "merge":
-        // merge sort works by dividing the array into pairs, sorting those pairs and then merging the resutlst
         console.profile("mergeSort");
-        // pass in items Not Null
         const mergeArr = mergeSort(itemsNotNull);
         renderNodes(mergeArr);
         console.profileEnd("mergeSort");
         break;
       case "insertion":
         console.profile("insertionSort");
+        const insertionArr = insertionSort(itemsNotNull, sorterIndex);
+        renderNodes(insertionArr);
         insertionSort();
         console.profileEnd("insertionSort");
         break;
@@ -202,58 +202,63 @@
     } while (swapped);
     return arr;
   }
-  //mergeSort splits the arrays
-
   function mergeSort(arr) {
-    // check to see if the array length is equal to or less than one, if so return as it doesnt need to be sorted
     if (arr.length <= 1) {
       return arr;
     }
-    // create a const for middle, left and right
-    // middle is going to be equal to the array length divided by 2, use math . floor to round down
     const middle = Math.floor(arr.length / 2),
-      //the left is going to be be equal to arry.slcie, start at index of 0
       left = arr.slice(0, middle),
-      //the right is eq to array.slice , passing in just the middle . That will automaicaly go to  the end of the array
       right = arr.slice(middle);
-    //return the merge function passing in the left and right values
     return merge(mergeSort(left), mergeSort(right));
   }
-  // mergeSort sorts them
+
   function merge(left, right) {
-    // merge the left and right
-    // create empty array called results
-    let results = [];
-    // create index L and R set to 0
-    indexLeft = 0;
-    indexRight = 0;
-    // also need the cost sorterIndex
+    let results = [],
+      indexLeft = 0,
+      indexRight = 0;
     const sorterIndex = headers.indexOf(sorters[0]);
-    // loop through nodes with while loop while indexLeft is less that left.length and indexRight is less than right.length
-    //execute the following code
     while ((indexLeft < left.length) & (indexRight < right.length)) {
-      /// need values again , copy from bubble sort , chagne values arr[i]for use of left and right
       const rowA = Array.from(left[indexLeft].childNodes);
       const rowB = Array.from(right[indexRight].childNodes);
 
       const x = parseFloat(rowA[sorterIndex].textContent);
       const y = parseFloat(rowB[sorterIndex].textContent);
-      // now compare
       if (x < y) {
         results.push(left[indexLeft]);
-        // iterate left index
         indexLeft++;
       } else {
         results.push(right[indexRight]);
         indexRight++;
       }
     }
-    // return a concatonated version of all three arays
     return results
       .concat(left.slice(indexLeft))
       .concat(right.slice(indexRight));
   }
-  function insertionSort(arr) {}
+  function insertionSort(arr, sorterIndex) {
+    // for loop starts with the second element in the array
+    for (let i = 1; i < arr.length; i++) {
+      const rowA = Array.from(arr[i].childNodes);
+      const x = parseFloat(rowA[sorterIndex].textContent);
+      // store the current value
+      const currentValue = arr[i];
+      // now do a backwards for loop
+      let j;
+      for (j = i - 1; j >= 0; j--) {
+        const rowB = Array.from(arr[j].childNodes);
+        const y = parseFloat(rowB[sorterIndex].textContent);
+        // check to see if y is less than or equal to x
+        if (y <= x) {
+          //if so no need to continue so break
+          break;
+        } else {
+          arr[j + 1] = arr[j];
+        }
+      }
+      arr[j + 1] = currentValue;
+    }
+    return arr;
+  }
   function quartileSort(sorter) {}
   function splitQuartiles(results, sorter) {}
   function renderNodes(arr) {
