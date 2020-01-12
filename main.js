@@ -307,12 +307,28 @@
     const headers = Object.keys(items[0]);
     headers.forEach(header => {
       let tempArr = [];
-      // loop through data
-      items.forEach(item => {
-        // check to see if item at header index is not equal to null
+      // pass in i as itorater
+      items.forEach((item, i) => {
         if (item[header] !== null) {
-          // this will  collect all the values for each column and assign that collection to values temArrr
           tempArr.push(item[header]);
+          // check to see if is the last itme
+          if (i === items.length - 1) {
+            // sort the array
+            // pass in a and b params check if a is less than b and if so return a -2 which pushes it down
+            //else check to see if is greater than b, if so return 1, else return zero.
+            tempArr.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
+            // get min val  use the spread operater
+            minVal = Math.min(...tempArr);
+            // get max val
+            maxVal = Math.max(...tempArr);
+            // get boundaries of the quartiles
+            // meanBal is the middle number of a sorted array
+            meanVal = tempArr[Math.floor(tempArr.length / 2)];
+            // first quartile
+            firstQuartile = tempArr[Math.floor(tempArr.length / 4)];
+            // thirdquartile
+            thirdQuartile = tempArr[Math.floor(tempArr.length / 4) * 3];
+          }
         }
       });
       summary[header] = {
@@ -324,9 +340,10 @@
         third: thirdQuartile
       };
     });
-
+    console.log(summary);
     return summary;
   }
+
   function heatMapColor(ele, val, key) {
     let color = "";
     const currentColumn = columnSummary[key],
