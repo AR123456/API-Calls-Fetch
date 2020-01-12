@@ -152,7 +152,6 @@
         console.profile("insertionSort");
         const insertionArr = insertionSort(itemsNotNull, sorterIndex);
         renderNodes(insertionArr);
-        insertionSort();
         console.profileEnd("insertionSort");
         break;
       case "quartile":
@@ -236,20 +235,15 @@
       .concat(right.slice(indexRight));
   }
   function insertionSort(arr, sorterIndex) {
-    // for loop starts with the second element in the array
     for (let i = 1; i < arr.length; i++) {
       const rowA = Array.from(arr[i].childNodes);
       const x = parseFloat(rowA[sorterIndex].textContent);
-      // store the current value
       const currentValue = arr[i];
-      // now do a backwards for loop
       let j;
       for (j = i - 1; j >= 0; j--) {
         const rowB = Array.from(arr[j].childNodes);
         const y = parseFloat(rowB[sorterIndex].textContent);
-        // check to see if y is less than or equal to x
         if (y <= x) {
-          //if so no need to continue so break
           break;
         } else {
           arr[j + 1] = arr[j];
@@ -313,6 +307,14 @@
     const headers = Object.keys(items[0]);
     headers.forEach(header => {
       let tempArr = [];
+      // loop through data
+      items.forEach(item => {
+        // check to see if item at header index is not equal to null
+        if (item[header] !== null) {
+          // this will  collect all the values for each column and assign that collection to values temArrr
+          tempArr.push(item[header]);
+        }
+      });
       summary[header] = {
         values: tempArr,
         min: minVal,
