@@ -253,8 +253,105 @@
     }
     return arr;
   }
-  function quartileSort(sorter) {}
-  function splitQuartiles(results, sorter) {}
+  function quartileSort(sorter) {
+    const nodes = Array.from(tableEle.childNodes);
+    nodes.shift();
+    const firstBuckets = splitQuartiles(nodes, sorter);
+    nodes.length = 0;
+    firstBuckets.forEach(bucket => {
+      const secondBuckets = splitQuartiles(bucket, sorter);
+      bucket.length = 0;
+      secondBuckets.forEach(secbucket => {
+        const sorterIndex = headers.indexOf(sorter);
+        if (sorters[0] === sorter) {
+          if (sorters.length > 1) {
+            secbucket.sort((a, b) => {
+              const rowA = Array.from(a.childNodes);
+              const rowB = Array.from(b.childNodes);
+              const x = parseFloat(rowA[sorterIndex].innerText);
+              const y = parseFloat(rowB[sorterIndex].innerText);
+              if (!isNaN(x) || !isNaN(y)) {
+                return x < y ? 1 : x > y ? -1 : 0;
+              } else {
+                return -1;
+              }
+            });
+          } else {
+            regularSort(secbucket, sorterIndex);
+          }
+        }
+        secbucket.forEach(currentVal => {
+          bucket.push(currentVal);
+        });
+      });
+      if (sorters.length > 1) {
+        bucket.reverse();
+      }
+      bucket.forEach(element => {
+        nodes.push(element);
+      });
+    });
+    renderNodes(nodes);
+  }
+  function splitQuartiles(nodes, sorter) {
+    let allBuckets = [[], [], [], [], []];
+    const sorterIndex = headers.indexOf(sorter);
+    nodes.forEach(currentVal => {
+      const rowA = Array.from(currentVal.childNodes);
+      // if this retuns a null vlaue and is empty parseFloat will return NaN.
+
+      const x = parseFloat(rowA[sorterIndex].textContent);
+      // check if x is NaN
+      // is it a number ?  if it is not NaN IE is a number to stuff , else push to ver first bucket
+      if (!isNaN(x)) {
+        //is the value in the quartile boundrys ?
+        if (
+          // if x is greater thatn or equal to column summary at the sorter
+          x >= columnSummary[sorter].min &&
+          // and look  min and the upper boundry will is x less that or equal to the column summary at the sorter (or = to the mean)
+          x <= columnSummary[sorter].first
+        ) {
+          //value is in the quartile boundry so take all buckets and bucket one and push our current val
+          allBuckets[1].push(currentVal);
+        }
+        // look for next boundry
+        if (
+          // is x greater than the first quartile
+          x > columnSummary[sorter].first &&
+          // and less than or equal to the mean
+          x <= columnSummary[sorter].mean
+        ) {
+          // if so push to Bucket 2
+          allBuckets[2].push(currentVal);
+        }
+        //   the next  boundry
+        if (
+          // is x greater than the mean
+          x > columnSummary[sorter].mean &&
+          // and less than or equal to the third quartile
+          x <= columnSummary[sorter].thirdQuartile
+        ) {
+          // if so push to Bucket 3
+          allBuckets[3].push(currentVal);
+        }
+
+        //   the last   boundry
+        if (
+          // is x greater than the third
+          x > columnSummary[sorter].third &&
+          // and less than or equal to the max
+          x <= columnSummary[sorter].max
+        ) {
+          // if so push to Bucket 4
+          allBuckets[4].push(currentVal);
+        }
+      } else {
+        // this is what we do if it is NaN
+        allBuckets[0].push(currentVal);
+      }
+    });
+    return allBuckets;
+  }
   function renderNodes(arr) {
     const reverse = document.getElementById("reverse").checked;
     if (reverse) {
@@ -307,27 +404,16 @@
     const headers = Object.keys(items[0]);
     headers.forEach(header => {
       let tempArr = [];
-      // pass in i as itorater
       items.forEach((item, i) => {
         if (item[header] !== null) {
           tempArr.push(item[header]);
-          // check to see if is the last itme
           if (i === items.length - 1) {
-            // sort the array
-            // pass in a and b params check if a is less than b and if so return a -2 which pushes it down
-            //else check to see if is greater than b, if so return 1, else return zero.
             tempArr.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
-            // get min val  use the spread operater
             minVal = Math.min(...tempArr);
-            // get max val
             maxVal = Math.max(...tempArr);
-            // get boundaries of the quartiles
-            // meanBal is the middle number of a sorted array
             meanVal = tempArr[Math.floor(tempArr.length / 2)];
-            // first quartile
             firstQuartile = tempArr[Math.floor(tempArr.length / 4)];
-            // thirdquartile
-            thirdQuartile = tempArr[Math.floor(tempArr.length / 4) * 3];
+            thirdQuartile = tempArr[Math.floor((tempArr.length / 4) * 3)];
           }
         }
       });
@@ -343,7 +429,6 @@
     console.log(summary);
     return summary;
   }
-
   function heatMapColor(ele, val, key) {
     let color = "";
     const currentColumn = columnSummary[key],
