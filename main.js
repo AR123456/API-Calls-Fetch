@@ -34,8 +34,10 @@
           throw new Error("something went wrong!");
         }
       })
+      // storing a copy of the original data for reset button
       .then(results => {
         data = results;
+
         originalData = results;
         columnSummary = minMaxMean(results);
       })
@@ -86,6 +88,19 @@
           val = entry[1],
           tdEle = document.createElement("TD");
         tdEle.innerText = val;
+        // adding icons using font awsome
+
+        const iEle = document.createElement("i");
+        iEle.className = "fas mainIcon";
+        if (key === "Population growth rate") {
+          if (val > 0) {
+            iEle.className = "fas fa-arrow-up";
+          }
+          if (val < 0) {
+            iEle.className = "fas fa-arrow-down";
+          }
+        }
+        tdEle.appendChild(iEle);
         if (i === 0) {
           tdEle.className = "fixed";
         } else {
@@ -298,55 +313,30 @@
     const sorterIndex = headers.indexOf(sorter);
     nodes.forEach(currentVal => {
       const rowA = Array.from(currentVal.childNodes);
-      // if this retuns a null vlaue and is empty parseFloat will return NaN.
-
-      const x = parseFloat(rowA[sorterIndex].textContent);
-      // check if x is NaN
-      // is it a number ?  if it is not NaN IE is a number to stuff , else push to ver first bucket
+      const x = parseFloat(rowA[sorterIndex].innerText);
       if (!isNaN(x)) {
-        //is the value in the quartile boundrys ?
         if (
-          // if x is greater thatn or equal to column summary at the sorter
           x >= columnSummary[sorter].min &&
-          // and look  min and the upper boundry will is x less that or equal to the column summary at the sorter (or = to the mean)
           x <= columnSummary[sorter].first
         ) {
-          //value is in the quartile boundry so take all buckets and bucket one and push our current val
           allBuckets[1].push(currentVal);
         }
-        // look for next boundry
         if (
-          // is x greater than the first quartile
           x > columnSummary[sorter].first &&
-          // and less than or equal to the mean
           x <= columnSummary[sorter].mean
         ) {
-          // if so push to Bucket 2
           allBuckets[2].push(currentVal);
         }
-        //   the next  boundry
         if (
-          // is x greater than the mean
           x > columnSummary[sorter].mean &&
-          // and less than or equal to the third quartile
-          x <= columnSummary[sorter].thirdQuartile
+          x <= columnSummary[sorter].third
         ) {
-          // if so push to Bucket 3
           allBuckets[3].push(currentVal);
         }
-
-        //   the last   boundry
-        if (
-          // is x greater than the third
-          x > columnSummary[sorter].third &&
-          // and less than or equal to the max
-          x <= columnSummary[sorter].max
-        ) {
-          // if so push to Bucket 4
+        if (x > columnSummary[sorter].third && x <= columnSummary[sorter].max) {
           allBuckets[4].push(currentVal);
         }
       } else {
-        // this is what we do if it is NaN
         allBuckets[0].push(currentVal);
       }
     });
@@ -355,6 +345,7 @@
   function renderNodes(arr) {
     const reverse = document.getElementById("reverse").checked;
     if (reverse) {
+      // reverse array method
       arr.reverse();
     }
     arr.forEach(row => {
