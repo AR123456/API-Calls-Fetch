@@ -1,3 +1,3 @@
-# Big example of JS Arrays
+# Simple Pure JS HTML and CSS Apps 
 
-# https://ar123456.github.io/JS-Arrays-Project/
+ 
