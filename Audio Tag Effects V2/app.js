@@ -16,3 +16,7 @@ function playSound(e) {
 const keys = Array.from(document.querySelectorAll(".key"));
 keys.forEach((key) => key.addEventListener("transitionend", removeTransition));
 window.addEventListener("keydown", playSound);
+
+// key replaces keyCode
+
+// use inner text of div kbd  as the const key
