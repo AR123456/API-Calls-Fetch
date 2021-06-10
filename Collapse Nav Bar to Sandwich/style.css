@@ -1,19 +1,35 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Muli", sans-serif;
+  background-color: #eafbff;
+  background-image: linear-gradient(
+    to bottom,
+    #eafbff 0%,
+    #eafbff 50%,
+    #5290f9 50%,
+    #5290f9 100%
+  );
   display: flex;
-  flex-direction: column;
-  /* center horizontaly  */
   align-items: center;
-  /* center vertcally */
   justify-content: center;
   height: 100vh;
-  /* dont show scrol bars by default  */
-  overflow: hidden;
   margin: 0;
+}
+nav {
+  background-color: white;
+  padding: 20px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+nav.active {
+  width: 350px;
 }
