@@ -13,3 +13,30 @@ body {
   overflow: hidden;
   margin: 0;
 }
+canvas {
+  border: 2px solid steelblue;
+}
+.toolbox {
+  background-color: steelblue;
+  border: 1px solid slateblue;
+  display: flex;
+  width: 804px;
+  padding: 1rem;
+}
+/* styling the tool box using controles direct children to the tool box as selector */
+.toolbox > * {
+  background-color: white;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  height: 50px;
+  width: 50px;
+  margin: 0.25rem;
+  padding: 0.23rem;
+}
+/* push X to right side  */
+.toolbox > *:last-child {
+  margin-left: auto;
+}
