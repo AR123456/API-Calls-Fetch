@@ -1,15 +1,73 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans");
 
 * {
   box-sizing: border-box;
+  /* reset remove margin and padding from everything */
+  margin: 0;
+  padding: 0;
 }
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  color: #222;
+  padding-bottom: 50px;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+/* TODO Nav */
+
+.hero {
+  background-image: url("https://images.pexels.com/photos/4004374/pexels-photo-4004374.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+  color: white;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  margin-bottom: 20px;
   height: 100vh;
-  overflow: hidden;
-  margin: 0;
+  /* push image behind the text  */
+  z-index: -2;
+}
+/* lighten the background image  */
+.hero::before {
+  content: "";
+  /* absolute within the hero element  */
+  position: absolute;
+  /* start at left top */
+  top: 0;
+  left: 0;
+  /* cover the whole image */
+  width: 100%;
+  height: 100%;
+  /* overlay with black to make pic less bright last postion is the alpaha */
+  /* background-color: rgba(250, 239, 239, 0.1); */
+  background-color: rgba(0, 0, 0, 0.1);
+  /* push image behind the text  */
+  z-index: -1;
+}
+.hero h1 {
+  font-size: 46px;
+  margin: -20px 0 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.content h2,
+.content h3 {
+  font-size: 150%;
+  margin: 20px 0;
+}
+
+.content p {
+  color: #555;
+  line-height: 30px;
+  letter-spacing: 1.2px;
 }

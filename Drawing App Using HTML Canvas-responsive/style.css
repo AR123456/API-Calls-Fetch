@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Robot", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+  /* overflow: hidden; */
+  margin: 50px;
+}
+canvas {
+  border: 2px solid steelblue;
+
+  /* display: block; */
+}
+.toolbox {
+  background-color: steelblue;
+  border: 1px solid slateblue;
+  display: flex;
+  width: 90%;
+  padding: 1rem;
+}
+/* styling the tool box using controles direct children to the tool box as selector */
+.toolbox > * {
+  background-color: white;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  height: 50px;
+  width: 50px;
+  margin: 0.25rem;
+  padding: 0.23rem;
+}
+/* push X to right side  */
+.toolbox > *:last-child {
+  margin-left: auto;
+}
