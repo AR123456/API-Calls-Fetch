@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
+* {
+  /* so padding does not take up the with  */
+  box-sizing: border-box;
+  /* reset padding to 0 */
+  padding: 0;
+  /* reset margin to 0 */
+  margin: 0;
+}
+/************************set up some project specific defaults ***************** */
+body {
+  /*  change the browsers default font */
+  font-family: "Open Sans", sans-serif;
+  /* set background color  */
+  background: #fff;
+  /* set line hight  */
+  line-height: 1.6;
+}
+ul {
+  /* remove the bullet from un ordered lists  */
+  list-style: none;
+}
+/*  chnage the default color and remove underline for links in the attribute tag */
+a {
+  color: #333;
+  text-decoration: none;
+}
+h1,
+h2 {
+  /* give large headings a light font  */
+  font-weight: 300;
+  /* The line-height CSS property sets the height of a line box. It's commonly used to set the distance between lines of text. 
+   using a unitless value ensures that the line height will scale proportionately. */
+  line-height: 1.2;
+}
+/* [ut the margin back on the p tag  */
+p {
+  margin: 10px 0;
+}
+/* set max width on image tags to be 100% */
+img {
+  width: 100%;
+}
