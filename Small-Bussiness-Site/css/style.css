@@ -41,3 +41,35 @@ p {
 img {
   width: 100%;
 }
+/* nav bar has h1 and UL put in flex box so they can be in a row  */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  color: #fff;
+  opacity: 0.8;
+  width: 100%;
+  height: 70px;
+  /* will always be stuck to the top */
+  position: fixed;
+  top: 0px;
+  padding: 0 30px;
+}
+
+/* the UL will also be a flex box so the LI can flow horizontly too (row) */
+.navbar a {
+  color: #fff;
+  padding: 10px 20px;
+  margin: 0 5px;
+}
+/* green underline on hover of hte nav links  */
+.navbar a:hover {
+  border-bottom: #28a745 2px solid;
+}
+.navbar ul {
+  display: flex;
+}
+.navbar .logo {
+  font-weight: 400;
+}
