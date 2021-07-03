@@ -1,15 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
-body {
-  font-family: "Roboto", sans-serif;
 
+body {
+  font-family: "Open Sans", sans-serif;
   height: 100vh;
 }
+
 .slider-container {
   /* set to relatie so that what is inside can be absolue within the container */
   position: relative;
@@ -23,9 +24,11 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  transition: transform 0.5s ease-in-out;
 }
 
 /* left side immediate div */
+
 .left-slide > div {
   height: 100%;
   /* this is 100% of the 35% width of the left side container */
@@ -41,12 +44,14 @@ body {
   margin-bottom: 10px;
   margin-top: -30px;
 }
+
 .right-slide {
   height: 100%;
   position: absolute;
   top: 0;
   left: 35%;
   width: 65%;
+  transition: transform 0.5s ease-in-out;
 }
 /* right side immediate div */
 .right-slide > div {
@@ -56,10 +61,34 @@ body {
   height: 100%;
   width: 100%;
 }
+button {
+  background-color: #fff;
+  border: none;
+  color: #aaa;
+  font-size: 16px;
+  padding: 15px;
+}
+button:hover {
+  color: #222;
+}
+button:focus {
+  outline: none;
+}
 
 .slider-container .action-buttons button {
   position: absolute;
   left: 35%;
   top: 50%;
   z-index: 100;
+}
+.slider-container .action-buttons .down-button {
+  transform: translateX(-100%);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.slider-container .action-buttons .up-button {
+  transform: translateY(-100%);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
