@@ -70,3 +70,9 @@
   height: 100%;
   object-fit: cover;
 }
+.flex-columns .column2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
