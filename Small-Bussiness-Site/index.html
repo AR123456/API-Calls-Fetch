@@ -133,8 +133,33 @@
           </div>
         </div>
       </section>
-      <!-- Blog-->
-      <section id-"blog class="blog flex-columns flex-reverse">
+      <!-- Team -->
+
+      <section id="team" class="team section-padding">
+              <header class="section-header">
+                <h4>Who we are </h4>
+                <h2>Our Team</h2>
+                <p>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores,
+                  rerum.
+                </p>
+              </header>
+              <div class="flex-items">
+                <div>
+                  <img src="images/team/person1.jpg" alt="">
+                  <h4>John Doe</h4>
+                  <p>President </p>
+                  <img src="images/team/person2.jpg" alt="">
+                  <h4>Jane Doe</h4>
+                  <p>CEO </p>
+                  <img src="images/team/person3.jpg" alt="">
+                  <h4>Betty Doe</h4>
+                  <p>Vice President</p>
+                </div>
+              </div>
+            </section>
+                  <!-- Blog -->
+      <section id="blog" class="blog flex-columns flex-reverse">
         <div class="row">
           <div class="column">
             <div class="column-1">
@@ -143,7 +168,7 @@
           </div>
           <div class="column">
             <div class="column-2 bg-secondary">
-              <h4>April 16 2021</h4>
+              <h4>April 16 2020</h4>
               <h2>Blog Post One</h2>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
@@ -151,7 +176,7 @@
                 iusto cupiditate odio maxime adipisci cumque eligendi nemo
                 dolore id itaque?
               </p>
-              <a href="#" class="btn btn-outline">
+              <a href="blog.html" class="btn btn-outline">
                 <i class="fas fa-chevron"></i>
                 Read Our Blog
               </a>
@@ -159,7 +184,65 @@
           </div>
         </div>
       </section>
+
+            
+      <!-- Contact -->
+      <section id="contact" class="contact flex-columns">
+        <div class="row">
+          <div class="column">
+            <div class="column-1">
+              <img src="images/home/contact.jpg" alt="" />
+            </div>
+          </div>
+          <div class="column">
+            <div class="column-2 bg-light">
+              <h2>Request Callback</h2>
+              <form action="" class="callback-form">
+                <div class="form-control">
+                  <label for="name"></label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Enter name"
+                  />
+                </div>
+                <div class="form-control">
+                  <label for="email"></label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Enter email"
+                  />
+                </div>
+                <div class="form-control">
+                  <label for="phone"></label>
+                  <input
+                    type="text"
+                    name="phone"
+                    id="phone"
+                    placeholder="Enter phone"
+                  />
+                </div>
+                <input type="submit" value="Send" id="submit" class="btn" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+ 
+    </main>
+    <footer class="footer bg-dark">
+      <div class="social">
+        <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+        <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+        <a href="#"><i class="fab fa-youtube fa-2x"></i></a>
+        <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+      </div>
+      <p>Copyright &copy; 2021- Small Site</p>
+    </footer>
     <script src="app.js"></script>
   </body>
 </html>
