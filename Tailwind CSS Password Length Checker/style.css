@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+.background {
+  background: url("https://images.unsplash.com/photo-1556745757-8d76bdb6984b")
+    no-repeat center center/cover;
+  position: absolute;
+  top: -20px;
+  bottom: -20px;
+  left: -20px;
+  right: -20px;
+  z-index: -1;
+  /* 
+  The filter CSS property applies graphical effects like blur or color shift to an element. Filters are commonly used to adjust the rendering of images, backgrounds, and borders.
+
+Included in the CSS standard are several functions that achieve predefined effects. You can also reference an SVG filter with a URL to an SVG filter element.
+  https://developer.mozilla.org/en-US/docs/Web/CSS/filter 
+  */
+  filter: blur(20px);
+}
