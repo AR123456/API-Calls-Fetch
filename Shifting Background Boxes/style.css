@@ -5,6 +5,8 @@
   box-sizing: border-box;
 }
 body {
+  background: #fafafa;
+  font-family: "Roboto" sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,7 +15,39 @@ body {
   overflow: hidden;
   margin: 0;
 }
-
+.magic {
+  background: #4f08c2;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  border: 0;
+  border-radius: 3px;
+  font-size: 16px;
+  padding: 12px 20px;
+  position: fixed;
+  top: 20px;
+  letter-spacing: 1px;
+  box-shadow: 0 3px rgba(236, 131, 214, 0.5);
+  /* setting to 100 so that it is always on top */
+  z-index: 100;
+}
+.magic:foucs {
+  outline: none;
+}
+/* trick to cover box shadow looks like button is squishing down a bit */
+.magic:active {
+  box-shadow: none;
+  transform: translateY(2px);
+}
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  height: 500px;
+  width: 500px;
+}
 .box {
-  background-image: url("https://media.giphy.com/media/EZqwsBSPlvSda/giphy.gif");
+  background: yellow;
+  /* height and width in grid of 500 x 500 */
+  height: 125px;
+  width: 125px;
+  /* background-image: url("https://media.giphy.com/media/EZqwsBSPlvSda/giphy.gif"); */
 }
