@@ -41,13 +41,57 @@ body {
 .boxes {
   display: flex;
   flex-wrap: wrap;
+  /* space around ot make this look like a grid */
+  justify-content: space-around;
   height: 500px;
   width: 500px;
+  position: relative;
+  /* transition forspinning effect 
+   */
+  transition: 0.4s ease;
+}
+.boxes.big {
+  width: 600px;
+  height: 600px;
+}
+/* add rotation the boxes if they have the big class */
+.boxes.big .box {
+  transform: rotateZ(360deg);
 }
 .box {
-  background: yellow;
+  background-image: url("https://media.giphy.com/media/EZqwsBSPlvSda/giphy.gif");
+  background-repeat: no-repeat;
+  /* this is making background big so in small baxes can only see part of the image */
+
+  background-size: 500px 500px;
+  /* to use the before and afer psudoselector need to make the postion relative  */
+  position: relative;
   /* height and width in grid of 500 x 500 */
   height: 125px;
   width: 125px;
-  /* background-image: url("https://media.giphy.com/media/EZqwsBSPlvSda/giphy.gif"); */
+  /* transition for spinning effect 
+   */
+  transition: 0.4s ease;
+}
+.box::after {
+  content: "";
+  background: #f6e58d;
+  /* aboslute relative to the box */
+  position: absolute;
+  top: 8px;
+  right: -15px;
+  height: 100%;
+  width: 15px;
+  transform: skewY(45deg);
+}
+.box::before {
+  content: "";
+  background: #f9ca24;
+  /* aboslute relative to the box */
+  position: absolute;
+  bottom: -15px;
+  left: 8px;
+  height: 15px;
+  width: 100%;
+  transform: skewX(45deg);
 }
