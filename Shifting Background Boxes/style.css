@@ -4,16 +4,16 @@
 * {
   box-sizing: border-box;
 }
+
 body {
-  background: #fafafa;
-  font-family: "Roboto" sans-serif;
+  background-color: #fafafa;
+  font-family: "Roboto", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
   overflow: hidden;
-  margin: 0;
 }
 .magic {
   background: #4f08c2;
