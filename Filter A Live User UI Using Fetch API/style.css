@@ -19,3 +19,36 @@ body {
   overflow: hidden;
   width: 300px;
 }
+.title {
+  margin: 0;
+}
+.subtitle {
+  display: inline-block;
+  margin: 5px 0 20px;
+  opacity: 0.8;
+}
+header {
+  background: #3e57db;
+  color: #fff;
+  padding: 30px 20px;
+}
+.header input {
+  background: rgba(0, 0, 0, 0.5);
+  border: 0;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 15px;
+  width: 100%;
+}
+.header input:focus {
+  outline: none;
+}
+.user-list {
+  background: #fff;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  max-height: 400px;
+  overflow-y: auto;
+}
