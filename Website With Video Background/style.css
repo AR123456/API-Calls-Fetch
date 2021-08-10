@@ -5,6 +5,9 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+:root {
+  --overlay-color: #03a9f4;
+}
 .showcase {
   position: absolute;
   right: 0;
@@ -17,6 +20,8 @@
   background: #111;
   color: #fff;
   z-index: 2;
+  /* transition for opening the meue on click */
+  transition: 0.5s;
 }
 .showcase header {
   position: absolute;
@@ -28,6 +33,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+/* if show case is active move the menu over  */
+.showcase.active {
+  right: 300px;
 }
 .logo {
   text-transform: uppercase;
@@ -64,7 +73,7 @@
   height: 100%;
   /* this is an alternaive to using rgba
   makes the video "pop" */
-  background: #03a9f4;
+  background: var(--overlay-color);
   mix-blend-mode: overlay;
 }
 .text {
@@ -131,8 +140,30 @@
   /* scale and move up a little */
   transform: scale(0.5) translateY(-15px);
 }
+.menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu ul {
+  position: relative;
+  list-style-type: none;
+}
+.menu ul li a {
+  text-decoration: none;
+  font-size: 24px;
+  color: #111;
+}
+.menu ul li a:hover {
+  color: var(--overlay-color);
+}
 /* text resize for small screens  */
-@media (max-width: 9991px) {
+@media (max-width: 798px) {
   .showcase,
   .showcase header {
     padding: 40px;
@@ -143,6 +174,4 @@
   .text h3 {
     font-size: 2em;
   }
-}
-.menu {
 }
