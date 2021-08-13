@@ -11,50 +11,38 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Mobile Tab Navigation</title>
+    <title>Mobile Nav</title>
   </head>
   <body>
-    <div class="phone">
-      <img
-        src="https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80"
-        alt="home"
-        class="content show"
-      />
-      <img
-        src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-        alt="work"
-        class="content"
-      />
-      <img
-        src="https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1266&q=80"
-        alt="blog"
-        class="content"
-      />
-      <img
-        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80"
-        alt="about"
-        class="content"
-      />
-      <nav>
-        <ul>
-          <li class="active">
-            <i class="fas fa-home"></i>
-            <p>Home</p>
-          </li>
-          <li>
-            <i class="fas fa-box"></i>
-            <p>Work</p>
-          </li>
-          <li>
-            <i class="fas fa-book-open"></i>
-            <p>Blog</p>
-          </li>
-          <li>
-            <i class="fas fa-users"></i>
-            <p>About Us</p>
-          </li>
-        </ul>
-      </nav>
+    <button class="nav-btn open-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+    <img src="./orchid.png" alt="Logo" class="logo" />
+    <!--<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>  -->
+    <p class="text">Mobile Navigation</p>
+
+    <div class="nav visible nav-black">
+      <div class="nav visible nav-red">
+        <div class="nav visible nav-white">
+          <button class="nav-btn close-btn">
+            <i class="fas fa-times"></i>
+          </button>
+          <img src="./orchid.png" alt="Logo" class="logo" />
+          <ul class="list">
+            <li><a href="#">Teams</a></li>
+            <li><a href="#">Locations</a></li>
+            <li>
+              <a href="#">Life at Mobile Nav</a>
+              <ul>
+                <li><a href="#">Mobile Nav Culture Memo</a></li>
+                <li><a href="#">Work Life Balance</a></li>
+                <li><a href="#">Inclusion & diversity</a></li>
+                <li><a href="#">Blog</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
     <script src="app.js"></script>
   </body>

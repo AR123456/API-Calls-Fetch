@@ -1,69 +1,81 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
 
 * {
   box-sizing: border-box;
 }
+
 body {
-  background-color: rgba(155, 89, 162, 0.7);
-  font-family: "Open Sans" sans-serif;
+  font-family: "Muli", sans-serif;
   display: flex;
   flex-direction: column;
+
   align-items: center;
   justify-content: center;
   height: 100vh;
-
-  margin: 0;
 }
-.phone {
-  position: relative;
-  overflow: hidden;
-  border: 3px solid #eee;
-
-  border-radius: 15px;
-  height: 600px;
-  width: 340px;
+.text {
+  text-transform: uppercase;
 }
-.phone .content {
-  opacity: 0;
-  object-fit: cover;
-  position: absolute;
+.logo {
+  width: 150px;
+}
+.nav-btn {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+}
+.open-btn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+.nav {
+  position: fixed;
   top: 0;
-  left: 0;
-  height: calc(100% - 60px);
-  width: 100%;
-  transition: opacity 0.4s ease;
+  left: 0%;
+  height: 100vh;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
 }
-.phone .content.show {
-  opacity: 1;
+.nav.visible {
+  transform: translateX(0);
 }
-nav {
+.nav-black {
+  background: rgb(34, 31, 31);
+  width: 60%;
+  max-width: 480px;
+  min-width: 320px;
+}
+.nav-red {
+  background: rgb(229, 9, 20);
+  width: 95%;
+}
+.nav-white {
+  background: #fff;
+  width: 95%;
+  padding: 40px;
+  position: relative;
+}
+.close-btn {
+  opacity: 0.3;
   position: absolute;
-  bottom: 0;
-  left: 0;
-  margin-top: -5px;
-  width: 100%;
+  top: 40px;
+  right: 30px;
 }
-nav ul {
-  background-color: #fff;
-  display: flex;
-  /* https://www.w3schools.com/cssref/pr_list-style-type.asp */
-  /* https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type */
+.list {
   list-style-type: none;
   padding: 0;
-  margin: 0;
-  height: 60px;
 }
-nav li {
-  color: #777;
-  flex: 1;
-  padding: 10px;
-  text-align: center;
+.list li {
+  margin: 20px 0;
 }
-nav ul li p {
-  font-size: 12px;
-  margin: 2px 0;
+.list li a {
+  color: rgb(34, 31, 31);
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
 }
-nav ul li:hover,
-nav ul li.active {
-  color: #8e44ad;
+.list ul {
+  list-style-type: none;
+  padding-left: 20px;
 }
