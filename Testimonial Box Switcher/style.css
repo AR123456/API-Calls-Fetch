@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
 * {
   box-sizing: border-box;
 }
+
 body {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  background-color: #f4f4f4;
+  font-family: "Montserrat", sans-serif;
   display: flex;
   flex-direction: column;
 
