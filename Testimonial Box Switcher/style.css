@@ -67,7 +67,7 @@ body {
   background: #fff;
   height: 4px;
   width: 100%;
-  animation: grow 10s linear infinite;
+  animation: grow 5s linear infinite;
   transform-origin: left;
 }
 @keyframes grow {
