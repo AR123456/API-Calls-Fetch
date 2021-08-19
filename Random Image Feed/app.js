@@ -12,7 +12,7 @@ for (let i = 0; i < rows * 3; i++) {
 }
 // console.log(getRandNum());
 function getRandNum() {
-  return Math.floor(Math.random() * 10) + 300;
+  return Math.floor(Math.random() * 20) + 300;
 }
 function getRandSize() {
   // need 2 nums for hight and width
