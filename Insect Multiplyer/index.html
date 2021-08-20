@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Insect Multiplyer</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <div class="screen">
+      <h1>Multiply The Insect</h1>
+      <button class="btn" id="start-btn">Play</button>
+    </div>
+    <div class="screen">
+      <h1>Pick a bug</h1>
+      <ul class="insects-list">
+        <li>
+          <button class="choose-insect-btn">
+            <p>Fly</p>
+            <img src="/fly_PNG3946.png" alt="fly" />
+          </button>
+        </li>
+        <li>
+          <button class="choose-insect-btn">
+            <p>Mosquito</p>
+            <img src="/mosquito_PNG18175.png" alt="mosquito" />
+          </button>
+        </li>
+        <li>
+          <button class="choose-insect-btn">
+            <p>Spider</p>
+            <img src="/spider_PNG12.png" alt="spider" />
+          </button>
+        </li>
+        <li>
+          <button class="choose-insect-btn">
+            <p>Roach</p>
+            <img src="/roach_PNG12163.png" alt="roach" />
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="screen game-container">
+      <h3 id="time">Time: 00:00</h3>
+      <h3 id="score">Score: 0</h3>
+      <h5 id="message">Screen full enough yet ?</h5>
+    </div>
+  </body>
 </html>
