@@ -37,7 +37,7 @@ h1 {
 }
 .screen.up {
   /* moving up one view port hight  */
-  margin-top: -100vh;
+  margin-top: -200vh;
 }
 /* make insects go side by side and wrap */
 .insects-list {
@@ -78,4 +78,64 @@ h1 {
 }
 .btn:hover {
   opacity: 0.9;
+}
+.game-container {
+  /* position relative so the children can be positined absolut
+   */
+  position: relative;
+}
+.time,
+.score {
+  position: absolute;
+  top: 20px;
+}
+.time {
+  left: 20px;
+}
+.score {
+  right: 30px;
+}
+.message {
+  line-height: 1.7;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  padding: 20px;
+  z-index: 100;
+  text-align: center;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -150%);
+  transition: transform 0.4 ease-in;
+}
+.message .visable {
+  opacity: 1;
+  transform: translate(-50%, +150%);
+}
+/* display flex so can aling items and justify content */
+.insect {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  /* position absoulute so that in the JS will be able
+to use top ect  hard coded here for styling  */
+  position: absolute;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 0.3 ease-in-out;
+  /* moving top and left moves the bug around this 
+  will be random coming from the JS */
+  top: 200;
+  left: 300;
+}
+.insect.caught {
+  transform: translate(-50%, -50%) scale(0);
+}
+/* contain the image into the div insect */
+.insect img {
+  width: 100px;
+  height: 100px;
 }
