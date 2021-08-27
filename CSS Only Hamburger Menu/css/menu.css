@@ -1,0 +1,74 @@
+/* putting the wrapping containger in upper left */
+.menu-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* z-index 1 so that always on top */
+  z-index: 1;
+}
+/* check box sits on top of menu items but will be 
+invisible doing this  so we can use its state to create overlay toggle 
+checked un checked */
+.menu-wrap .toggler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* the check box is invisible but always on top  */
+  z-index: 2;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  /* making check box invisible  */
+  opacity: 0;
+}
+/* The outside wrapper of the hamburger */
+.menu-wrap .hamburger {
+  /* position in same place as the toggler */
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* z-index 1 so it is just under the check box */
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  padding: 1rem;
+  background: var(--primary-color);
+  /* display flex so div inside will take care of lines  */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* ////  Hamburger line  */
+/* lines of hamburger the empty div inside the hamburger div, will set
+it to be a line then use before and after to insert to make 2 more lines 
+*/
+.menu-wrap .hamburger > div {
+  position: relative;
+  flex: none;
+  width: 100%;
+  /* middle line of hamburger  */
+  height: 2px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* before and after psudoselector for top and bottom lines of hamburger  */
+.menu-wrap .hamburger > div::before,
+.menu-wrap .hamburger > div::after {
+  /* use content but have to put something in */
+  content: "";
+  /* postion is absolute relative to the actual menu-wrap hamburger div */
+  position: absolute;
+  /*  */
+  z-index: 1;
+  top: -10px;
+  width: 100%;
+  height: 2px;
+  background: inherit;
+}
+.menu-wrap .hamburger > div::after {
+  /* all the same as above but moving this line down 10px */
+  /* so that it is visible  */
+  top: 10px;
+}
