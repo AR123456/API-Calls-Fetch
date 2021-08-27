@@ -72,3 +72,9 @@ it to be a line then use before and after to insert to make 2 more lines
   /* so that it is visible  */
   top: 10px;
 }
+
+/* turning hamburger into a rotating X  */
+/* using the + selector to get the hamburger div */
+.menu-wrap .toggler:checked + .hamburger > div {
+  transform: rotate(135deg);
+}
