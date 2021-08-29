@@ -92,4 +92,57 @@ it to be a line then use before and after to insert to make 2 more lines
 .menu-wrap .toggler:checked:hover + .hamburger > div {
   transform: rotate(225deg);
 }
-/*  */
+/* overlay and list items /////////////////// */
+.menu-wrap .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* visibility: hidden; */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*  when check box checked apply a dark overlay to welcome page  */
+.menu-wrap .menu > div {
+  background: var(--overlay-color);
+  width: 200vw;
+  height: 200vh;
+  /* so menu appears , re centering */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* adding transtion the scale to 0 for now will transition up when check box checked  */
+  /* transform: scale(0); */
+  transition: all 0.4 ease-in-out;
+}
+/* target the next div  */
+.menu-wrap .menu > div > div {
+  text-align: center;
+  /* max-width of the items being scaled  */
+  max-width: 90vw;
+  max-height: 100vh;
+  /* opacity to 0 to hide wen check box is not checked  */
+  /* opacity: 0; */
+  /* this is the transition in of the menu items  */
+  transition: opacity 0.4s ease;
+}
+/* now styling the list items  */
+.menu-wrap .menu > div > div > ul > li {
+  list-style: none;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+/* a tab white no underline */
+.menu-wrap .menu > div > div > ul > li > a {
+  color: inherit;
+  text-decoration: none;
+  /* transition for the color on hover */
+  transition: color 0.4s ease-in-out;
+}
+.menu-wrap .menu > div > div > ul > li > a:hover {
+  color: var(--secondary-color);
+}
