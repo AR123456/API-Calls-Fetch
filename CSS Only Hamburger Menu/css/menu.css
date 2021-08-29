@@ -92,6 +92,22 @@ it to be a line then use before and after to insert to make 2 more lines
 .menu-wrap .toggler:checked:hover + .hamburger > div {
   transform: rotate(225deg);
 }
+/* ////////////////////////// do this when the check box ( under the hamburger is checked   */
+/* target menu from check box using tilde it gets the preceeding element 
+ */
+.menu-wrap .toggler:checked ~ .menu {
+  visibility: visible;
+}
+/* transfrom the first div to scale 1*/
+.menu-wrap .toggler:checked ~ .menu > div {
+  transform: scale(1);
+  transition-duration: var(--menu-speed);
+}
+/* transfrom the inner div's opacity to 1*/
+.menu-wrap .toggler:checked ~ .menu > div > div {
+  opacity: 1;
+  transition: opacity 0.4s ease 0.4s;
+}
 /* overlay and list items /////////////////// */
 .menu-wrap .menu {
   position: fixed;
@@ -99,33 +115,38 @@ it to be a line then use before and after to insert to make 2 more lines
   left: 0;
   width: 100%;
   height: 100%;
-  /* visibility: hidden; */
+  /* make this visible using the built into CSS check box */
+  visibility: hidden;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 /*  when check box checked apply a dark overlay to welcome page  */
+/* this is the outer div  or first div */
 .menu-wrap .menu > div {
   background: var(--overlay-color);
+  border-radius: 50%;
   width: 200vw;
-  height: 200vh;
+  height: 200vw;
   /* so menu appears , re centering */
   display: flex;
+  /* adding flex none here so that the circle is a circle and not an oval */
+  flex: none;
   align-items: center;
   justify-content: center;
   /* adding transtion the scale to 0 for now will transition up when check box checked  */
-  /* transform: scale(0); */
+  transform: scale(0);
   transition: all 0.4 ease-in-out;
 }
-/* target the next div  */
+/* target the next div the inner div  */
 .menu-wrap .menu > div > div {
   text-align: center;
   /* max-width of the items being scaled  */
   max-width: 90vw;
   max-height: 100vh;
-  /* opacity to 0 to hide wen check box is not checked  */
-  /* opacity: 0; */
+  /* opacity to 0 to hide when check box is not checked  */
+  opacity: 0;
   /* this is the transition in of the menu items  */
   transition: opacity 0.4s ease;
 }
@@ -146,3 +167,4 @@ it to be a line then use before and after to insert to make 2 more lines
 .menu-wrap .menu > div > div > ul > li > a:hover {
   color: var(--secondary-color);
 }
+/* use the built in to css check box event to do hambuger animation and scale up the first div, the second div bring in to opacity 1, sed visiability to visible   */
