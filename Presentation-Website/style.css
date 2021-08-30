@@ -74,3 +74,36 @@ body {
   color: #333;
   background: #fff;
 }
+/*page 1 animation   */
+#page-1 h1 {
+  /* position: relative;
+  top: -50; */
+  transform: translateY(-1200px);
+  animation: topDown var(--animation-speed) forwards ease-in;
+}
+#page-1 p {
+  /* position: relative;
+  left: -250;
+  animation: sideIn 1s ease-in; */
+  transform: translateX(-1200px);
+  animation: sideIn var(--animation-speed) forwards ease-in;
+}
+
+@keyframes topDown {
+  to {
+    transform: translateY(0);
+  }
+  /* 0%,
+  50% {
+    transform: translateY(-50vh);
+  } */
+}
+@keyframes sideIn {
+  /* 0%,
+  50% {
+    transform: translateX(-50vw);
+  } */
+  to {
+    transform: translatex(0);
+  }
+}
