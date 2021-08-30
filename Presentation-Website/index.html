@@ -9,8 +9,10 @@
       href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
       integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
       crossorigin="anonymous"
+      <link
+      rel="stylesheet"
+      href="style.css"
     />
-
     <link rel="stylesheet" href="style.css" />
     <title>Presentation Website</title>
   </head>
@@ -89,6 +91,27 @@
         ></a>
       </div>
     </section>
+
+    <!-- <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // Smooth Scrolling
+      $(".btn").on("click", function (event) {
+        if (this.hash !== "") {
+          event.preventDefault();
+          const hash = this.hash;
+          $("html, body").animate(
+            {
+              scrollTop: $(hash).offset().top,
+            },
+            800
+          );
+        }
+      });
+    </script> -->
     <script src="app.js"></script>
   </body>
 </html>

@@ -86,7 +86,7 @@ body {
   left: -250;
   animation: sideIn 1s ease-in; */
   transform: translateX(-1200px);
-  animation: sideIn var(--animation-speed) forwards ease-in;
+  animation: sideIn var(--animation-speed) forwards ease-in 1s;
 }
 
 @keyframes topDown {
