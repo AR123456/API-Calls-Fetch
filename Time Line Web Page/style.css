@@ -27,3 +27,26 @@ body {
 h1 {
   font-size: 2.3rem;
 }
+#timeline ul {
+  background: var(--primary-color);
+  padding: 50px 0;
+}
+/* creates line  */
+#timeline ul li {
+  list-style: none;
+  /* position relative so the stuff inside can be positioned absolute  */
+  position: relative;
+  width: 6px;
+  /* this pushes it to the middle  */
+  margin: 0 auto;
+  padding-top: 50px;
+  background: #fff;
+}
+/* boxes - each div */
+/* boxes off to the sides are the divs in the  */
+#timeline ul li div {
+  position: relative;
+  bottom: 0;
+  width: 400px;
+  padding: 1rem;
+}
