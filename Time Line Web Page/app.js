@@ -14,13 +14,13 @@ const isInViewport = (el) => {
   );
 };
 // loop through the items (li) and check to see if it is in the viewport, ifit is add class of show
-const run = () => {
+
+const run = () =>
   items.forEach((item) => {
     if (isInViewport(item)) {
       item.classList.add("show");
     }
   });
-};
 
 //Events - when to fire off the run function
 window.addEventListener("load", run);
