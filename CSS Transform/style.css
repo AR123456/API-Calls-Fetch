@@ -1,0 +1,26 @@
+body {
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.box {
+  background: white;
+  width: 300px;
+  height: 300px;
+  /* simple rotate  */
+  transform: rotate(25deg);
+  /* skew rotates diagonaly  */
+  transform: skew(25deg);
+  /* scale by magnitued could put in 2 vals  */
+  transform: scale(2);
+  /* can use transform with transition  */
+  transition: all 1s ease-in-out;
+}
+.box:hover {
+  background: red;
+  border-radius: 50%;
+  height: 300px;
+  width: 300px;
+}
