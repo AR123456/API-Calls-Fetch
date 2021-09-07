@@ -11,8 +11,9 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="grid_col_style.css" />
     <title>Grid Columns</title>
-    <style>
+    <!-- <style>
       .grid {
         display: grid;
         /* grid-template-columns: 300px 300px 300px 300px; */
@@ -37,7 +38,7 @@
         grid-gap: 1rem;
         margin-top: 2rem;
       }
-    </style>
+    </style> -->
   </head>
 
   <nav id="navbar">
@@ -123,14 +124,21 @@
 
     <main>
       <section>
-        <h3>Welcome To My Site</h3>
+        <h3>What is an fr unit ?</h3>
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo suscipit
-          reprehenderit aperiam repudiandae voluptatibus, expedita ex temporibus
-          eos et mollitia velit vel molestias sint dolore at doloremque neque
-          minima optio ad tempore quisquam perferendis esse non. Aliquam illum
-          doloremque architecto! Rem voluptas at sunt sed enim eius laborum
-          dolores quaerat?
+          7.2.4. Flexible Lengths: the fr unit
+          A flexible length or &lt;flex&gt; is a dimension with the fr unit, which represents a fraction of the leftover space in the grid container. Tracks sized with fr units are called flexible tracks as they flex in response to leftover space similar to how flex items with a zero base size fill space in a flex container.
+          
+          The distribution of leftover space occurs after all non-flexible track sizing functions have reached their maximum. The total size of such rows or columns is subtracted from the available space, yielding the leftover space, which is then divided among the flex-sized rows and columns in proportion to their flex factor.
+          
+          Each column or row’s share of the leftover space can be computed as the column or row’s &lt;flex&gt; * &lt;leftover space&gt; / &lt;sum of all flex factors&lt;.
+          
+            &lt;flex&gt; values between 0fr and 1fr have a somewhat special behavior: when the sum of the flex factors is less than 1, they will take up less than 100% of the leftover space.
+          When the available space is infinite (which happens when the grid container’s width or height is indefinite), flex-sized grid tracks are sized to their contents while retaining their respective proportions. The used size of each flex-sized grid track is computed by determining the max-content size of each flex-sized grid track and dividing that size by the respective flex factor to determine a “hypothetical 1fr size”. The maximum of those is used as the resolved 1fr length (the flex fraction), which is then multiplied by each grid track’s flex factor to determine its final size.
+          
+          Note: &lt;flex&gt; values are not  &lt;length&gt;s (nor are they compatible with &lt;length&gt;s, like some &lt;percentage&gt; values), so they cannot be represented in or combined with other unit types in calc() expressions.
+          
+          7.2.5. Comp
         </p>
       </section>
       <aside>
