@@ -40,12 +40,55 @@ h6 {
   margin-bottom: 0.55rem;
   line-height: 1.3;
 }
-/* Utility */
+/* //////////////////////////////Utility  classes that can  be reused */
 .container {
   max-width: var(--max-width);
   margin: auto;
   padding: 0 2rem;
   overflow: hidden;
+}
+.category {
+  display: inline-block;
+  color: #fff;
+  font: 0.55rem;
+  text-transform: uppercase;
+  padding: 0.4rem 0.6rem;
+  border-radius: 15px;
+  margin-bottom: 0.5rem;
+}
+.category-sports {
+  background: var(--sports_color);
+}
+.category-ent {
+  background: var(--ent_color);
+}
+.category-tech {
+  background: var(--tech_color);
+}
+.btn {
+  display: inline-block;
+  border: none;
+  background: var(--dark-color);
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+}
+.btn-light {
+  background: var(--light-color);
+}
+.btn-primary {
+  background: var(--primary-color);
+}
+.btn-secondary {
+  background: var(--secondary-color);
+}
+.btn:hover {
+  opacity: 0.9;
+}
+/* make this a block level button, goes all the way accross  */
+.btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
 }
 /* navigation  */
 #main-nav {
@@ -93,4 +136,38 @@ h6 {
 #main-nav .social i {
   color: #777;
   margin-right: 0.5rem;
+}
+/* Showcase  */
+#showcase {
+  background: #333;
+  padding: 2rem;
+  /* so showcase before can be absolue within this  */
+  position: relative;
+}
+#showcase:before {
+  content: "";
+  background: url("../img/featured.jpg") no-repeat center center/cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+}
+#showcase .showcase-container {
+  display: grid;
+  /* a 2 colom row  */
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  color: #fff;
+}
+#showcase .showcase-content {
+  /* this holds the text this puts it on top of the image */
+  z-index: 1;
+}
+/* push the read more button down a bit  */
+#showcase .showcase-content p {
+  margin-bottom: 1rem;
 }
