@@ -240,3 +240,23 @@ h6 {
 #home-articles .articles-container > *:last-child {
   grid-column: 2 / span 2;
 }
+/* footer */
+#main-footer {
+  background: var(--dark-color);
+  color: #fff;
+}
+#main-footer img {
+  width: 150px;
+}
+#maing-footer a {
+  color: #fff;
+}
+#main-footer .footer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+#main-footer .footer-container > *:last-child {
+  background: #444;
+  grid-column: 1 / span 4;
+}
