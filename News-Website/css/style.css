@@ -128,13 +128,16 @@ h6 {
 .p-3 {
   padding: 3rem;
 }
+.l-heading {
+  font-size: 3rem;
+}
 .list li {
   padding: 0.5rem 0;
   border-bottom: #555 dotted 1px;
   width: 90%;
 }
 .list li a {
-  color: #fff;
+  color: rgb(98, 77, 156);
 }
 .list li a:hover {
   color: var(--primary-color);
@@ -301,4 +304,17 @@ Inner page grid container
 /* targeting the submit button  */
 #main-footer .footer-container input[type="submit"] {
   width: 90%;
+}
+/* using flex for this - it is good for inner emements, menus and stuff */
+/*  */
+#article .meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #eee;
+  padding: 0.5rem;
+}
+#article .meta .category {
+  color: #333;
+  margin-top: 0.4rem;
 }
