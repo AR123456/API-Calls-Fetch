@@ -139,6 +139,20 @@ h6 {
 .list li a:hover {
   color: var(--primary-color);
 }
+/* using this page-containger on the about and other pages 
+Inner page grid container
+*/
+.page-container {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  /* as this is now the aoout and side bar
+   are same hight putting in grid row to make side bar shorter  */
+  margin: 2rem 0;
+  gap: 1.5rem;
+}
+.page-container > *:first-child {
+  grid-row: 1 / span 3;
+}
 
 .bg-dark h1,
 .bg-dark h2,
