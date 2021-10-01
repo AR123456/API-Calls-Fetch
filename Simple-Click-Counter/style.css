@@ -1,8 +1,19 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+/* variables  */
+:root {
+  --ff-primary: "Roboto", sans-serif;
+  --ff-secondary: "Open Sans", sans-serif;
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl() */
+  /* The hsl() functional notation expresses a given color according to its hue, saturation, and lightness components. An optional alpha component represents the color's transparency. */
+  --clr-primary-4: hsl(205, 63%, 48%);
+  --clr-grey-1: hsl(209, 61%, 16%);
+  --clr-grey-10: hsl(210, 36%, 96%);
+  --spacing: 0.1rem;
+}
 * {
   box-sizing: border-box;
 }
 body {
-  font-family: "Courier New", Courier, monospace;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,4 +21,13 @@ body {
   height: 100vh;
   overflow: hidden;
   margin: 0;
+  font-family: var(--ff-secondary);
+  background: var(--clr-grey-10);
+  color: var(--clr-grey-1);
+  line-height: 1.5;
+}
+h2 {
+  letter-spacing: var(--spacing);
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
 }
