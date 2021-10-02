@@ -10,19 +10,30 @@ decrease.addEventListener("click", () => {
   count--;
   console.log(count);
   value.innerHTML = count;
-  value.style.background = "red";
+  setTextColor();
 });
 
 increase.addEventListener("click", () => {
   console.log("increase");
   count++;
   value.innerHTML = count;
-  value.style.background = "green";
+  setTextColor();
 });
 
 reset.addEventListener("click", () => {
   console.log("reset");
   count = 0;
   value.innerHTML = count;
-  value.style.background = "transparent";
+  setTextColor();
 });
+
+setTextColor = () => {
+  console.log("set the color ");
+  if (count > 0) {
+    value.style.color = "green";
+  } else if (count < 0) {
+    value.style.color = "red";
+  } else {
+    value.style.color = "black";
+  }
+};
