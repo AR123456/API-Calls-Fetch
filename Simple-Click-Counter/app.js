@@ -6,22 +6,18 @@ const value = document.getElementById("value");
 count = 0;
 
 decrease.addEventListener("click", () => {
-  console.log("decrease ");
   count--;
-  console.log(count);
   value.innerHTML = count;
   setTextColor();
 });
 
 increase.addEventListener("click", () => {
-  console.log("increase");
   count++;
   value.innerHTML = count;
   setTextColor();
 });
 
 reset.addEventListener("click", () => {
-  console.log("reset");
   count = 0;
   value.innerHTML = count;
   setTextColor();
