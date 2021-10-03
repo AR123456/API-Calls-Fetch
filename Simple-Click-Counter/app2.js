@@ -3,8 +3,8 @@ const value = document.getElementById("value");
 const btns = document.querySelectorAll(".btn");
 // btns is a node list
 // console.log(btns[0].classList);
-btns.forEach(function (btn) {
-  btn.addEventListener("click", function (e) {
+btns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
     // console.log(btn.classList);
     const styles = e.currentTarget.classList;
     if (styles.contains("decrease")) {
