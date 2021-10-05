@@ -29,3 +29,36 @@ const reviews = [
     text: "Edison bulb put a bird on it humblebrag, marfa pok pok heirloom fashion axe cray stumptown venmo actually seitan. VHS farm-to-table schlitz, edison bulb pop-up 3 wolf moon tote bag street art shabby chic. ",
   },
 ];
+
+// need consts for buttons
+const next = document.querySelector(".next-btn");
+const previous = document.querySelector(".prev-btn");
+const random = document.querySelector(".random-btn");
+// set up on clicks
+next.addEventListener("click", () => {
+  console.log(reviews[0].id);
+  console.log(reviews[0].img);
+  console.log(reviews[0].job);
+  console.log(reviews[0].name);
+  console.log(reviews[0].text);
+  document.querySelector(".review").innerHTML = `
+  <div class="img-container">
+  <img src=${reviews[0].img} alt="person-1" id="person-img" />
+</div>
+<h4 id="author">${reviews[0].name}</h4>
+<p id="job">${reviews[0].job}</p>
+<p id="info">
+ ${reviews[0].text}
+</p>
+  
+  
+  
+  `;
+});
+// with each click on next get next item in the object array
+// with click of rand button gen random choice
+// put the found array object into the DOM
+//  name to #author id
+// job to #job
+// text to #info
+// img to #perons-img
