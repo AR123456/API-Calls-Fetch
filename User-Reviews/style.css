@@ -4,11 +4,14 @@
   --ff-secondary: "Open Sans", sans-serif;
   /* primary/main color */
   --clr-primary-5: hsl(205, 78%, 60%);
+  --clr-primary-1: hsl(205, 86%, 17%);
   /* darkest grey - used for headings */
   --clr-grey-1: hsl(209, 61%, 16%);
 
   /* grey used for paragraphs */
   --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-primary-7: hsl(205, 90%, 76%);
+  --clr-primary-10: hsl(205, 100%, 96%);
   /* lighter shades of primary color */
   --clr-grey-10: hsl(210, 36%, 96%);
   --clr-white: #fff;
@@ -141,4 +144,30 @@ author {
 }
 .prev-btn,
 .next-btn {
+  color: var(--clr-primary-7);
+  background: transparent;
+  border-color: transparent;
+  margin: 0 0.5rem;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.prev-btn:hover,
+.next-btn:hover {
+  color: var(--clr-primary-5);
+}
+.random-btn {
+  margin-top: 0.5rem;
+  background: var(--clr-primary-10);
+  color: var(--clr-primary-5);
+  padding: 0.25rem 0.5rem;
+  text-transform: capitalize;
+
+  border-radius: var(--radius);
+  transition: var(--transition);
+  border-color: var(--clr-primary-5);
+  cursor: pointer;
+}
+.random-btn:hover {
+  background: var(--clr-primary-5);
+  color: var(--clr-primary-1);
 }
