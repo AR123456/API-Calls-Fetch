@@ -31,37 +31,43 @@ const reviews = [
 ];
 
 // need consts for buttons
-const nextBtn = document.querySelector(".next-btn");
-const prevBTN = document.querySelector(".prev-btn");
-const randomBTN = document.querySelector(".random-btn");
-// cost for items in the array object
-const img = document.getElementById("person-img");
-const author = document.getElementById("author");
-const job = document.getElementById("job");
-const info = document.getElementById("info");
-// counter
-let currentItem = 0;
-// when page loads show the first item in the reviews array
-window.addEventListener("DOMContentLoaded", function () {
-  const item = reviews[currentItem];
-  img.src = item.img;
-  author.textContent = item.name;
-  job.textContent = item.job;
-  info.textContent = item.text;
-  console.log(item);
+const next = document.querySelector(".next-btn");
+const previous = document.querySelector(".prev-btn");
+const random = document.querySelector(".random-btn");
+// set up on clicks
+next.addEventListener("click", () => {
+  for (let i = 0; i < reviews.length; i++) {
+    showReview();
+  }
 });
-// here person is current array item
-function showPerson(person) {
-  // reseting item to the current index of the reiew array
-  const item = reviews[person];
-  img.src = item.img;
-  author.textContent = item.name;
-  job.textContent = item.job;
-  info.textContent = item.text;
-  console.log(item);
-}
 
-// next person on click
-nextBtn.addEventListener("click", function () {
-  showPerson();
-});
+function showReview() {
+  console.log(reviews);
+  //   document.querySelector(".review").innerHTML = `
+  //   <div class="img-container">
+  //   <img src=${reviews.img} alt="person-1" id="person-img" />
+  // </div>
+  // <h4 id="author">${reviews.name}</h4>
+  // <p id="job">${reviews.job}</p>
+  // <p id="info">
+  //  ${reviews.text}
+  // </p>
+  // <div class="button-container">
+  // <button class="prev-btn">
+  //   <i class="fas fa-chevron-left"></i>
+  // </button>
+  // <button class="next-btn">
+  //   <i class="fas fa-chevron-right"></i>
+  // </button>
+  // </div>
+  // <button class="random-btn">Get Random</button>
+
+  //   `;
+}
+// with each click on next get next item in the object array
+// with click of rand button gen random choice
+// put the found array object into the DOM
+//  name to #author id
+// job to #job
+// text to #info
+// img to #perons-img
