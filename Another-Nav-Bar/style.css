@@ -1,13 +1,33 @@
-*{
-    box-sizing: border-box;
+/* Fonts */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+/* Variables  on the root*/
+:root {
+  --ff-secondary: "Open Sans", sans-serif;
+  --clr-grey-1:hsl(209,61%,16%)
+  --clr-grey-10: hsl(210, 36%, 96%);
 }
-body{
-    font-family: 'Courier New', Courier, monospace;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--ff-secondary);
+  background: var(--clr-grey-10);
+  color: var(--clr-grey-1);
+  line-height: 1.5;
+  font-size: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+/* remove the bullit from ul */
+ul{
+    list-style-type: none;
+}
+/* remvoe the underline from a */
+a{
+    text-decoration: none;
 }
