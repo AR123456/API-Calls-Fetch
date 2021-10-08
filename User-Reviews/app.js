@@ -40,46 +40,46 @@ const author = document.getElementById("author");
 const job = document.getElementById("job");
 const info = document.getElementById("info");
 // counter
-let currentItem = 0;
+let currentReview = 0;
 // when page loads show the first item in the reviews array
 window.addEventListener("DOMContentLoaded", () => {
-  const item = reviews[currentItem];
-  img.src = item.img;
-  author.textContent = item.name;
-  job.textContent = item.job;
-  info.textContent = item.text;
-  console.log(item);
+  const review = reviews[currentReview];
+  img.src = review.img;
+  author.textContent = review.name;
+  job.textContent = review.job;
+  info.textContent = review.text;
+  console.log(review);
 });
-// here person is current array item
-showPerson = (person) => {
+
+showPerson = (currentReview) => {
   // reseting item to the current index of the reiew array
-  const item = reviews[person];
-  img.src = item.img;
-  author.textContent = item.name;
-  job.textContent = item.job;
-  info.textContent = item.text;
-  //   item is the object at the index
-  console.log(item);
+  const review = reviews[currentReview];
+  img.src = review.img;
+  author.textContent = review.name;
+  job.textContent = review.job;
+  info.textContent = review.text;
+
+  console.log(review);
 };
 
 // next person on click
 nextBtn.addEventListener("click", () => {
-  currentItem++;
-  if (currentItem > reviews.length - 1) {
-    currentItem = 0;
+  currentReview++;
+  if (currentReview > reviews.length - 1) {
+    currentReview = 0;
   }
-  showPerson(currentItem);
+  showPerson(currentReview);
 });
 // show prev person
 prevBtn.addEventListener("click", () => {
-  currentItem--;
-  if (currentItem < 0) {
-    currentItem = reviews.length - 1;
+  currentReview--;
+  if (currentReview < 0) {
+    currentReview = reviews.length - 1;
   }
-  showPerson(currentItem);
+  showPerson(currentReview);
 });
 // random
 randomBTN.addEventListener("click", () => {
-  currentItem = Math.floor(Math.random() * reviews.length);
-  showPerson(currentItem);
+  currentReview = Math.floor(Math.random() * reviews.length);
+  showPerson(currentReview);
 });
