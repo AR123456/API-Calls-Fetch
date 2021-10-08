@@ -42,7 +42,7 @@ const info = document.getElementById("info");
 // counter
 let currentItem = 0;
 // when page loads show the first item in the reviews array
-window.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("DOMContentLoaded", () => {
   const item = reviews[currentItem];
   img.src = item.img;
   author.textContent = item.name;
@@ -51,7 +51,7 @@ window.addEventListener("DOMContentLoaded", function () {
   console.log(item);
 });
 // here person is current array item
-function showPerson(person) {
+showPerson = (person) => {
   // reseting item to the current index of the reiew array
   const item = reviews[person];
   img.src = item.img;
@@ -60,10 +60,10 @@ function showPerson(person) {
   info.textContent = item.text;
   //   item is the object at the index
   console.log(item);
-}
+};
 
 // next person on click
-nextBtn.addEventListener("click", function () {
+nextBtn.addEventListener("click", () => {
   currentItem++;
   if (currentItem > reviews.length - 1) {
     currentItem = 0;
@@ -71,7 +71,7 @@ nextBtn.addEventListener("click", function () {
   showPerson(currentItem);
 });
 // show prev person
-prevBtn.addEventListener("click", function () {
+prevBtn.addEventListener("click", () => {
   currentItem--;
   if (currentItem < 0) {
     currentItem = reviews.length - 1;
@@ -79,7 +79,7 @@ prevBtn.addEventListener("click", function () {
   showPerson(currentItem);
 });
 // random
-randomBTN.addEventListener("click", function () {
+randomBTN.addEventListener("click", () => {
   currentItem = Math.floor(Math.random() * reviews.length);
   showPerson(currentItem);
 });
