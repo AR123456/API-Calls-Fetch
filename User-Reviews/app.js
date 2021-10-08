@@ -32,7 +32,7 @@ const reviews = [
 
 // need consts for buttons
 const nextBtn = document.querySelector(".next-btn");
-const prevBTN = document.querySelector(".prev-btn");
+const prevBtn = document.querySelector(".prev-btn");
 const randomBTN = document.querySelector(".random-btn");
 // cost for items in the array object
 const img = document.getElementById("person-img");
@@ -58,10 +58,23 @@ function showPerson(person) {
   author.textContent = item.name;
   job.textContent = item.job;
   info.textContent = item.text;
+  //   item is the object at the index
   console.log(item);
 }
 
 // next person on click
 nextBtn.addEventListener("click", function () {
-  showPerson();
+  currentItem++;
+  if (currentItem > reviews.length - 1) {
+    currentItem = 0;
+  }
+  showPerson(currentItem);
+});
+// show prev person
+prevBtn.addEventListener("click", function () {
+  currentItem--;
+  if (currentItem < 0) {
+    currentItem = reviews.length - 1;
+  }
+  showPerson(currentItem);
 });
