@@ -78,3 +78,8 @@ prevBtn.addEventListener("click", function () {
   }
   showPerson(currentItem);
 });
+// random
+randomBTN.addEventListener("click", function () {
+  currentItem = Math.floor(Math.random() * reviews.length);
+  showPerson(currentItem);
+});
