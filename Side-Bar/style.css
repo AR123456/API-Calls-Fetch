@@ -3,11 +3,14 @@
   --ff-secondary: "Open Sans", sans-serif;
   --clr-grey-1: hsl(209, 61%, 16%);
   --clr-grey-3: hsl(205, 72%, 37%);
+  --clr-grey-5: hsl(210, 22%, 49%);
   --clr-grey-10: hsl(210, 36%, 96%);
   --clr-primary-1: hsl(205, 86%, 17%);
   --clr-primary-5: hsl(205, 78%, 60%);
   --clr-primary-7: hsl(205, 90%, 76%);
   --clr-primary-8: hsl(205, 86%, 81%);
+  --clr-red-dark: hsl(360, 67%, 44%);
+  --clr-red-light: hsl(360, 71%, 66%);
   --clr-white: #fff;
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s linear;
@@ -43,4 +46,66 @@ main {
   min-height: 100vh;
   display: grid;
   place-items: center;
+}
+/* toggle button */
+.sidebar-toggle {
+  position: fixed;
+  top: 2rem;
+  right: 3rem;
+  font-size: 2rem;
+  background: transparent;
+  border-color: transparent;
+  color: var(--clr-primary-5);
+  transition: var(--transition);
+  cursor: pointer;
+  animation: bounce 2s ease-in-out 2;
+}
+.sidebar-toggle:hover {
+  color: var(--clr-primary-7);
+}
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+}
+.close-btn {
+  font-size: 1.75rem;
+  background: transparent;
+  border-color: transparent;
+  color: var(--clr-primary-5);
+  transition: var(--transition);
+  cursor: pointer;
+  color: var(--clr-red-dark);
+}
+.close-btn:hover {
+  color: var(--clr-red-light);
+  transform: rotate(360deg);
+}
+.logo {
+  justify-self: center;
+}
+.links a {
+  display: block;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  padding: 1rem 1.5rem;
+  color: var(--clr-grey-5);
+  transition: var(--transition);
+}
+.links a:hover {
+  background: var(--clr-primary-8);
+  color: var(--clr-primary-5);
+  padding-left: 1.75rem;
 }
