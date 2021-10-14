@@ -1,8 +1,8 @@
 const questions = document.querySelectorAll(".question");
 // loop the node list
-questions.forEach(function (question) {
+questions.forEach((question) => {
   const btn = question.querySelector(".question-btn");
-  btn.addEventListener("click", function () {
+  btn.addEventListener("click", () => {
     questions.forEach(function (item) {
       if (item !== question) {
         item.classList.remove("show-text");
@@ -12,10 +12,10 @@ questions.forEach(function (question) {
   });
 });
 //  using mouse over
-// questions.forEach(function (question) {
+// questions.forEach((question) => {
 //   const btn = question.querySelector(".question-btn");
 //   btn.addEventListener("mouseover", function () {
-//     questions.forEach(function (item) {
+//     questions.forEach((item) => {
 //       if (item !== question) {
 //         item.classList.remove("show-text");
 //       }
