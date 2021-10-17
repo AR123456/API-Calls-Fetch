@@ -90,7 +90,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function diplayMenuItems(menuItems) {
-  let displayMenu = menuItems.map(function (item) {
+  let displayMenu = menuItems.map((item) => {
     // console.log(item);
 
     return `<article class="menu-item">
@@ -112,7 +112,7 @@ function diplayMenuItems(menuItems) {
   sectionCenter.innerHTML = displayMenu;
 }
 // https://www.youtube.com/watch?v=3PHXvlpOkf4&t=421s
-function displayMenuButtons() {
+const displayMenuButtons = () => {
   const categories = menu.reduce(
     function (values, item) {
       if (!values.includes(item.category)) {
@@ -123,7 +123,7 @@ function displayMenuButtons() {
     ["all"]
   );
   const categoryBtns = categories
-    .map(function (category) {
+    .map((category) => {
       return `<button type="button" class="filter-btn" data-id=${category}>
           ${category}
         </button>`;
@@ -134,11 +134,11 @@ function displayMenuButtons() {
   const filterBtns = btnContainer.querySelectorAll(".filter-btn");
   console.log(filterBtns);
 
-  filterBtns.forEach(function (btn) {
-    btn.addEventListener("click", function (e) {
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
       // console.log(e.currentTarget.dataset);
       const category = e.currentTarget.dataset.id;
-      const menuCategory = menu.filter(function (menuItem) {
+      const menuCategory = menu.filter((menuItem) => {
         // console.log(menuItem.category);
         if (menuItem.category === category) {
           return menuItem;
@@ -151,7 +151,7 @@ function displayMenuButtons() {
       }
     });
   });
-}
+};
 // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset
 // https://www.w3schools.com/tags/att_global_data.asp
 // console.log(e.currentTarget.dataset);
