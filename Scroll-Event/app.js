@@ -16,7 +16,7 @@ navToggle.addEventListener("click", function () {
   } else {
     linksContainer.style.height = 0;
   }
-  console.log(linksContainer.getBoundingClientRect());
+  // console.log(linksContainer.getBoundingClientRect());
 });
 // js for the fixed navbar
 const navbar = document.getElementById("nav");
@@ -40,4 +40,31 @@ window.addEventListener("scroll", function () {
   } else {
     topLink.classList.remove("show-link");
   }
+});
+// smooth scroll to location when selecting from navbar
+const scrollLinks = document.querySelectorAll(".scroll-link");
+scrollLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    //  preventDefault
+    e.preventDefault();
+    //  navigate to the place on the page where the href is
+    const id = e.currentTarget.getAttribute("href").slice(1);
+    const element = document.getElementById(id);
+    const navHeight = navbar.getBoundingClientRect().height;
+    const containterHeight = linksContainer.getBoundingClientRect().height;
+    const fixedNav = navbar.classList.contains("fixed-nav");
+    let position = element.offsetTop - navHeight;
+    if (!fixedNav) {
+      position = position - navHeight;
+    }
+    if (navHeight > 82) {
+      position = position + containterHeight;
+    }
+    window.scrollTo({
+      left: 0,
+      top: position,
+    });
+    // close
+    linksContainer.style.height = 0;
+  });
 });
