@@ -18,3 +18,26 @@ navToggle.addEventListener("click", function () {
   }
   console.log(linksContainer.getBoundingClientRect());
 });
+// js for the fixed navbar
+const navbar = document.getElementById("nav");
+const topLink = document.querySelector(".top-link");
+window.addEventListener("scroll", function () {
+  const scrollHeight = window.scrollY;
+  const navHeight = navbar.getBoundingClientRect().height;
+  // console.log(scrollHeight, "scroll Height");
+  // console.log(navHeight, "nav height");
+  if (scrollHeight > navHeight) {
+    // console.log(" scroll height move than nav height");
+    navbar.classList.add("fixed-nav");
+  } else {
+    // console.log(" scroll height less than nav height ");
+    navbar.classList.remove("fixed-nav");
+  }
+  if (scrollHeight > 500) {
+    // console.log("scroll height more than 500");
+    // show link is the top arrow
+    topLink.classList.add("show-link");
+  } else {
+    topLink.classList.remove("show-link");
+  }
+});
